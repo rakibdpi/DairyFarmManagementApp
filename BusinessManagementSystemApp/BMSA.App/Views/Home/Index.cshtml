@@ -1,0 +1,76 @@
+﻿@model BusinessManagementSystemApp.Core.ViewModels.HomeViewModel
+
+@{
+    ViewBag.Title = "Index";
+    ViewBag.Description = "Home Page";
+}
+
+
+@*<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+
+<canvas id="myChart" height="250" width="400"></canvas>*@
+<style>
+    .customize {
+        font-size: 25px;
+        margin-left: 50px;
+        margin-bottom: 50px;
+        color: green
+    }
+</style>
+
+
+<div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="box box-info">
+            <div class="box-header"><h5 class="box-title">Dashboard</h5></div>
+            <div class="box-body">
+                <div class="row">
+                    <div class="col-md-offset-2 col-md-8">
+                        <div class="form-group row">
+                            @Html.LabelFor(model => model.ProductId, "Search", htmlAttributes: new { @class = "control -label" })
+                            @Html.DropDownListFor(c => c.ProductId, null, "", htmlAttributes: new { @class = "form-control show-tick", @tabindex = "20" })
+                            @Html.ValidationMessageFor(model => model.ProductId, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <div class="row">
+                    <div class="col-md-6 col-sm-6">
+                        <label class="control-label customize" id="code"></label>
+                        <br/>
+                        <br/>
+                        <label class="control-label customize" id="weight"></label>
+                    </div>
+                    <div class="col-md-6 col-sm-6">
+                        <label class="control-label customize" id="color"></label>
+                        <br/>
+                        <br/>
+                        <label class="control-label customize" id="year"></label>
+                     </div>
+                   
+                </div>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+@section ViewSpecificJavascript
+{
+    <script src="~/Scripts/chart.js"></script>
+}
+
+

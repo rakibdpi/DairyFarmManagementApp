@@ -1,0 +1,121 @@
+﻿@model BusinessManagementSystemApp.Core.ViewModels.MilkMamagement.ClientInfoViewModels
+
+   @{ ViewBag.Title = "ClientInfoForm";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+
+<div class="row">
+    <div class="col-md-offset-1 col-md-10 col-sm-offset-1 col-sm-10 col-xs-12">
+        <div class="panel panel-info">
+            <div class="panel-heading">Client Information </div>
+            <div class="panel-body">
+                <div class="col-md-8 col-sm-8 col-xs-8">
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken();
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.AreaId, "Area", htmlAttributes: new { @class = "control -label" })
+                            @Html.DropDownListFor(c => c.AreaId, null, "", htmlAttributes: new { @class = "form-control input-sessionChange", @tabindex = "20" })
+                            @Html.ValidationMessageFor(model => model.AreaId, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Code, htmlAttributes: new { @class = "control-label" })
+                            @Html.EditorFor(model => model.Code, new { htmlAttributes = new { @class = "form-control"} })
+                            @Html.ValidationMessageFor(model => model.Code, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label" })
+                            @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.PhoneNo, htmlAttributes: new { @class = "control-label" })
+                            @Html.EditorFor(model => model.PhoneNo, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.PhoneNo, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Address, htmlAttributes: new { @class = "control-label" })
+                            @Html.EditorFor(model => model.Address, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.HalfKg, "450 Gm", htmlAttributes: new { @class = "control-label" })
+                            @Html.EditorFor(model => model.HalfKg, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.HalfKg, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.SevenAndHalfGm, "675 Gm", htmlAttributes: new { @class = "control-label" })
+                            @Html.EditorFor(model => model.SevenAndHalfGm, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.SevenAndHalfGm, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.OneKg, "900 Gm", htmlAttributes: new { @class = "control-label" })
+                            @Html.EditorFor(model => model.OneKg, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.OneKg, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.DayInterval, "Day Interval", htmlAttributes: new { @class = "control-label" })
+                            @Html.EditorFor(model => model.DayInterval, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.DayInterval, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.IsActive, htmlAttributes: new { @class = "control-label" })
+                            <div class="checkbox">
+                                @Html.EditorFor(model => model.IsActive)
+                                @Html.ValidationMessageFor(model => model.IsActive, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.HiddenFor(c => c.Id)
+                            <input id="btnSubmit" type="button" value="Submit" class="btn btn-primary" />
+                        </div>
+
+                        @*<div class="form-group">
+                <label class="control-label" style="color: @ViewBag.Color">@ViewBag.Message</label>
+            </div>*@
+                    }
+
+                </div>
+
+                <div class="col-md-4 col-sm-4 col-xs-4">
+                    @* <a class="btn btn-info btn-sm pull-right" href="@Url.Action("AircraftList", "Aircrafts")"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back To List</a>*@
+                </div>
+
+                @* *********************************************************************** *@
+
+
+            </div>
+        </div>
+
+
+        <div class="box box-info">
+            <div class="box-header"><h5 class="box-title">History</h5></div>
+            <div class="box-body">
+                <table id="clientInfoHistory" class="table table-bordered table-hover display">
+                    <thead>
+                    <tr>
+                        <th>Area</th>
+                        <th>Code</th>
+                        <th>Name</th>
+                        <th>PhoneNo</th>
+                        <th>Address</th>
+                        <th>Day Interval</th>
+                        <th>Is Active</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+@section ViewSpecificJavascript
+{
+    <script src="~/Scripts/MilkManagement/ClientInfos/clientInfoForm.js"></script>
+}
+

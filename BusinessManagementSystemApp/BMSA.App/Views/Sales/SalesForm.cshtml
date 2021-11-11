@@ -1,0 +1,111 @@
+﻿@model BusinessManagementSystemApp.Core.ViewModels.MilkSalesViewModel.MilkSaleViewModel
+@{
+    ViewBag.Title = "SalesForm";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-offset-1 col-md-10 col-sm-offset-1 col-sm-10 col-xs-12">
+        <div class="panel panel-info">
+            <div class="panel-heading">Sales Form</div>
+            <div class="panel-body">
+                <div class="col-md-10 col-sm-10 col-xs-10">
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <div class="form-group col-md-8">
+                            @Html.LabelFor(model => model.ClientType, "Customer Type *", htmlAttributes: new { @class = "control-label" })
+                            <select class="form-control" id="ClientType">
+                                <option value="1">Registered Client</option>
+                                <option value="2">Normal Client</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-8" id="areaDiv">
+                            @Html.LabelFor(model => model.AreaId, "Area *", htmlAttributes: new { @class = "control-label" })
+                            @Html.DropDownListFor(c => c.AreaId, null, "", htmlAttributes: new { @class = "form-control show-tick" })
+                            @Html.ValidationMessageFor(model => model.AreaId, "", new { @class = "text-danger" })
+                        </div>
+                        <div id="clientDiv" class="form-group col-md-8">
+                            @Html.LabelFor(model => model.ClientInfoId, "Client", htmlAttributes: new { @class = "control-label" })
+                            @Html.DropDownListFor(model => model.ClientInfoId, null, "", htmlAttributes: new { @class = "form-control show-tick" })
+                            @Html.ValidationMessageFor(model => model.ClientInfoId, "", new { @class = "text-danger" })
+                        </div>
+                        <div id="customerDiv" class="form-group col-md-8">
+                            @Html.LabelFor(model => model.CustomerName, "Customer Name *", htmlAttributes: new { @class = "control-label" })
+                            @Html.EditorFor(model => model.CustomerName, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.CustomerName, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div id="MobileDiv" class="form-group col-md-8">
+                            @Html.LabelFor(model => model.MobileNo, "Mobile No *", htmlAttributes: new { @class = "control-label" })
+                            @Html.EditorFor(model => model.MobileNo, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.MobileNo, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div id="QuantityDiv" class="form-group col-md-8">
+                            @Html.LabelFor(model => model.Quantity, "Quantity *", htmlAttributes: new { @class = "control-label" })
+                            @Html.EditorFor(model => model.Quantity, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Quantity, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group col-md-8">
+                            @Html.LabelFor(model => model.SalesMonth, "Month *", htmlAttributes: new { @class = "control-label" })
+                            <select class="form-control" id="SalesMonth">
+                                <option value="">Select</option>
+                                <option value="January">January</option>
+                                <option value="February">February</option>
+                                <option value="March">March</option>
+                                <option value="April">April</option>
+                                <option value="May">May</option>
+                                <option value="June">June</option>
+                                <option value="July">July</option>
+                                <option value="August">August</option>
+                                <option value="September">September</option>
+                                <option value="October">October</option>
+                                <option value="November">November</option>
+                                <option value="December">December</option>
+                            </select>
+                        </div>
+                        <div id="QuantityDiv" class="form-group col-md-8">
+                            @Html.LabelFor(model => model.StartDate, "Start Date *", htmlAttributes: new { @class = "control-label" })
+                            @Html.EditorFor(model => model.StartDate, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.StartDate, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group col-md-8 form-horizontal">
+                            @Html.HiddenFor(c => c.Id)
+                            <input id="btnLoad" type="button" value="Load Detials" class="btn btn-primary" />
+                            <input id="btnSubmit" type="button" value="Submit" class="btn btn-primary" />
+                            <input id="btnCancel" type="button" value="Clear" class="btn btn-primary" />
+                            <input id="btnPrevious" type="button" value="Previous" class="btn btn-primary" />
+                            <input id="btnNext" type="button" value="Next" class="btn btn-primary" />
+                        </div>
+
+
+                    }
+                    <div class="form-group">
+                        <table id="salesTable" class="table table-bordered table-hover display" style="width: 100%; margin-left: 2%">
+                            <thead>
+                                <tr>
+                                    <th readonly>Id</th>
+                                    <th readonly>Customer</th>
+                                    <th>Day</th>
+                                    <th>450 Gm</th>
+                                    <th>675 Gm</th>
+                                    <th>900 Gm</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
+    </div>
+</div>
+
+@section ViewSpecificJavascript
+{
+    <script src="~/Scripts/MilkManagement/SaleScripts/milkSaleForm.js"></script>
+}

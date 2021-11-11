@@ -1,0 +1,172 @@
+﻿@model BusinessManagementSystemApp.Core.ViewModels.AsthaShop.BusinessPartnerInfoViewModel
+@{
+    ViewBag.Title = "BusinessPartnerInfoFrom";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-11 col-sm-11">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            <div class="box box-primary">
+                <div class="box-header with-border"><h4 class="box-title">Partner Info From</h4></div>
+                <div class="box-body">
+                    <div class="col-md-12 col-sm-12 ">
+                        <div class="row">
+                            <div class="col-md-4 col-sm-4">
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.Name, "Full Name", htmlAttributes: new { @class = "control-label" })
+                                    @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control", @tabindex = "1" } })
+                                    @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.Email, "Email", htmlAttributes: new { @class = "control-label" })
+                                    @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", @tabindex = "3" } })
+                                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.Age, "Age", htmlAttributes: new { @class = "control-label" })
+                                    @Html.EditorFor(model => model.Age, new { htmlAttributes = new { @class = "form-control input-sessionChange", @tabindex = "5" } })
+                                    @Html.ValidationMessageFor(model => model.Age, "", new { @class = "text-danger" })
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.Education, "Education", htmlAttributes: new { @class = "control-label" })
+                                    @Html.EditorFor(model => model.Education, new { htmlAttributes = new { @class = "form-control ", @tabindex = "7" } })
+                                    @Html.ValidationMessageFor(model => model.Education, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.PermanentAddress, "PermanentAddress", htmlAttributes: new { @class = "control-label" })
+                                    @Html.EditorFor(model => model.PermanentAddress, new { htmlAttributes = new { @class = "form-control", @tabindex = "9" } })
+                                    @Html.ValidationMessageFor(model => model.PermanentAddress, "", new { @class = "text-danger" })
+                                </div>
+
+
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.Gender, "Gender?", htmlAttributes: new { @class = "control-label" })
+                                    <br />
+                                    @Html.RadioButtonFor(model => model.Gender, "Yes", htmlAttributes: new { @id = "MaleGenderButton", @tabindex = "21" }) Male
+                                    @Html.RadioButtonFor(model => model.Gender, "No", htmlAttributes: new { @id = "FemaleGenderButton" }) Female
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-4">
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.MobileNo, "MobileNo", htmlAttributes: new { @class = "control-label" })
+                                    @Html.EditorFor(model => model.MobileNo, new { htmlAttributes = new { @class = "form-control", @tabindex = "2" } })
+                                    @Html.ValidationMessageFor(model => model.MobileNo, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.Occupation, "Occupation", htmlAttributes: new { @class = "control-label" })
+                                    @Html.EditorFor(model => model.Occupation, new { htmlAttributes = new { @class = "form-control ", @tabindex = "4" } })
+                                    @Html.ValidationMessageFor(model => model.Occupation, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.NidNo, "National Id No", htmlAttributes: new { @class = "control-label" })
+                                    @Html.EditorFor(model => model.NidNo, new { htmlAttributes = new { @class = "form-control ", @tabindex = "6" } })
+                                    @Html.ValidationMessageFor(model => model.NidNo, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.PresentAddress, "PresentAddress", htmlAttributes: new { @class = "control-label" })
+                                    @Html.EditorFor(model => model.PresentAddress, new { htmlAttributes = new { @class = "form-control", @tabindex = "8" } })
+                                    @Html.ValidationMessageFor(model => model.PresentAddress, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.FatherName, "FatherName", htmlAttributes: new { @class = "control-label" })
+                                    @Html.EditorFor(model => model.FatherName, new { htmlAttributes = new { @class = "form-control", @tabindex = "10" } })
+                                    @Html.ValidationMessageFor(model => model.FatherName, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.IsActive, "IsActive?", htmlAttributes: new { @class = "control-label" })
+                                    <div class="checkbox">
+                                        @Html.EditorFor(model => model.IsActive)
+                                        @Html.ValidationMessageFor(model => model.IsActive, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="col-md-4 col-sm-4">
+                                <div class="form-group" style="height: 296px">
+                                    <label class="control-label">Image</label><br />
+                                    <img id="imageView" class="img-thumbnail" src="~/images/file-photo-o.png" alt="Person image" height="160px" width="140px" />
+                                    <br />
+                                    <br />
+                                    <input id="pdfFiles" name="pdfFiles" class="form-control" type='file' onchange="readURL(this);" />
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.MotherName, "MotherName", htmlAttributes: new { @class = "control-label" })
+                                    @Html.EditorFor(model => model.MotherName, new { htmlAttributes = new { @class = "form-control", @tabindex = "11" } })
+                                    @Html.ValidationMessageFor(model => model.MotherName, "", new { @class = "text-danger" })
+                                </div>
+
+                            </div>
+                            @Html.AntiForgeryToken()
+                            <div class="row">
+                                <div class="col-md-12 col-sm-12">
+                                    @Html.HiddenFor(c => c.Id)
+                                    <div class="form-group col-md-2 col-sm-2">
+                                        <input type="button" id="btnSubmit" value="SAVE" class="btn btn-primary btn-block" />
+                                    </div>
+                                    <div class="form-group col-md-2 col-sm-2">
+                                        <input type="button" id="btnRefresh" value="CLEAR" class="btn btn-primary btn-block" />
+                                    </div>
+                                    <div class="form-group col-md-2 col-sm-2">
+
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+
+                        </div>
+
+
+
+
+
+
+
+
+                    </div>
+                </div>
+            </div>
+        }
+
+        <table id="personalInfoList" class="table table-bordered table-hover display nowrap" style="width: 100%">
+            <thead>
+                <tr>
+                    <th style="text-align: center"> Name</th>
+                    <th style="text-align: center">Mobile Number</th>
+                    <th style="text-align: center">Email</th>
+                    <th style="text-align: center">National Id</th>
+                    <th style="text-align: center"></th>
+                    <th style="text-align: center"></th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+    <div class="col-md-1 col-sm-1"></div>
+</div>
+@section ViewSpecificJavascript
+{
+    <script type="text/javascript">
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    $('#imageView')
+                        .attr('src', e.target.result);
+                };
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+    </script>
+
+
+    <script src="~/Scripts/businessPartnerInfoFrom.js"></script>
+}

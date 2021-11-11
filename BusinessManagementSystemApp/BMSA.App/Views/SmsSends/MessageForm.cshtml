@@ -1,0 +1,56 @@
+﻿@model  BusinessManagementSystemApp.Core.ViewModels.MilkMamagement.MessageViewModel
+@{
+    ViewBag.Title = "MessageForm";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-offset-1 col-md-10 col-sm-offset-1 col-sm-10 col-xs-12">
+        <div class="panel panel-info">
+            <div class="panel-heading">Sms Send </div>
+            <div class="panel-body">
+                <div class="col-md-8 col-sm-8 col-xs-8">
+                    @using (Html.BeginForm())
+                    {
+                        <div class="form-group" id="areaDiv">
+                            @Html.LabelFor(model => model.AreaId, "Area *", htmlAttributes: new { @class = "control-label" })
+                            @Html.DropDownListFor(c => c.AreaId, null, "", htmlAttributes: new { @class = "form-control show-tick" })
+                            @Html.ValidationMessageFor(model => model.AreaId, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Message, "Message", htmlAttributes: new { @class = "control-label" })
+                            @Html.TextAreaFor(model => model.Message, new { @class = "form-control", @rows = "3" })
+                            @Html.ValidationMessageFor(model => model.Message, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group">
+
+                            <input id="btnSubmit" type="button" value="Send Message" class="btn btn-primary" />
+                        </div>
+
+                        @*<div class="form-group">
+                                <label class="control-label" style="color: @ViewBag.Color">@ViewBag.Message</label>
+                            </div>*@
+                    }
+
+                </div>
+
+                <div class="col-md-4 col-sm-4 col-xs-4">
+                    @* <a class="btn btn-info btn-sm pull-right" href="@Url.Action("AircraftList", "Aircrafts")"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back To List</a>*@
+                </div>
+
+                @* *********************************************************************** *@
+
+
+            </div>
+        </div>
+
+
+
+
+    </div>
+</div>
+@section ViewSpecificJavascript
+{
+    <script src="~/Scripts/SendSms/message_script.js"></script>
+}

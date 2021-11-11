@@ -1,0 +1,38 @@
+﻿@{
+    ViewBag.Title = "Cow List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-10 col-sm-10 col-md-offset-1 col-sm-offset-1">
+        <div class="panel panel-info">
+            <div class="panel-heading with-border"><h4 class="panel-title">Cow List</h4></div>
+            <div class="panel-body">
+                <div class="col-md-12 col-sm-12">
+                    <div>
+                        @Html.ActionLink("Cow Entry", "CowEntryForm", null, new { @class = "btn btn-primary" })
+                    </div>
+                    <br />
+                </div>
+                <div class="col-md-12 col-sm-12">
+                    <table id="list" class="table table-bordered table-hover display nowrap" style="width: 100%">
+                        <thead>
+                            <tr>
+                                <th>Cow Number</th>
+                                <th>Color</th>
+                                <th>Action</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section ViewSpecificJavascript
+{
+    <script src="~/Scripts/MilkManagement/CowSetups/cowListForm.js"></script>
+}

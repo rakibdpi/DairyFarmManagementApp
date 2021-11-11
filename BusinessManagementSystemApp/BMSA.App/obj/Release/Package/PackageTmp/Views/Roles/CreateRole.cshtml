@@ -1,0 +1,47 @@
+﻿@using System.Web.Optimization
+@model BMSA.App.ViewModels.RoleViewModels.CreateRoleViewModel
+@{
+    ViewBag.Title = "Register";
+}
+
+<div class="row">
+    <div class="col-md-offset-2 col-md-8 col-sm-10 col-sm-offset-1">
+
+        @using (Html.BeginForm("CreateRole", "Roles", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+        {
+            <div class="box box-primary">
+                <div class="box-header with-border"><h4 class="box-title">Role Form</h4><a href="@Url.Action("RoleList")" class="btn btn-info btn-sm pull-right">Back to List</a></div>
+                <div class="box-body">
+                    @Html.AntiForgeryToken()
+                    <div class="col-md-8 col-sm-10 col-md-offset-1">
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label" })
+                            @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label" })
+                            @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3 col-sm-3">
+                                <div class="form-group">
+                                    <input type="submit" value="Submit" class="btn btn-primary btn-block pull-left" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+@section ViewSpecificJavascript {
+    <script src="~/Scripts/jquery.validate.js"></script>
+}
+
+
+

@@ -1,0 +1,38 @@
+﻿@{
+    ViewBag.Title = "Role List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-8 col-sm-10 col-md-offset-2 col-sm-offset-1">
+        <div class="panel panel-info">
+            <div class="panel-heading"><h4 class="panel-title">Role List</h4></div>
+            <div class="box-body">
+                <div class="col-md-12 col-sm-12">
+                    <div>
+                        @Html.ActionLink("Create Role", "CreateRole", null, new { @class = "btn btn-primary" })
+                    </div>
+                    <br />
+                </div>
+                <div class="col-md-12 col-sm-12">
+                    <table id="roleList" class="table table-bordered table-hover display nowrap" style="width: 100%">
+                        <thead>
+                            <tr>
+                                <th style="width: 25%; text-align: center">Role Name</th>
+                                <th style="width: 60%; text-align: center">Description</th>
+                                <th style="width: 15%; text-align: center">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section ViewSpecificJavascript
+{
+    <script src="~/Scripts/Roles/roleList.js"></script>
+}
+

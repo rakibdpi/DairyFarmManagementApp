@@ -1,0 +1,66 @@
+﻿@model BusinessManagementSystemApp.Core.ViewModels.MilkMamagement.MonthlyReservationViewModel
+@{
+    ViewBag.Title = "ReservationForm";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="row">
+    <div class="col-md-offset-1 col-md-10 col-sm-offset-1 col-sm-10 col-xs-12">
+        <div class="panel panel-info">
+            <div class="panel-heading">Monthly Reservation</div>
+            <div class="panel-body">
+                <div class="col-md-8 col-sm-8 col-xs-8">
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken();
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Area, "Area", htmlAttributes: new { @class = "control-label" })
+                            @Html.DropDownListFor(c => c.Area, null, "", htmlAttributes: new { @class = "form-control show-tick" })
+                            @Html.ValidationMessageFor(model => model.Area, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.ClientInfoId, "Client", htmlAttributes: new { @class = "control-label" })
+                            @Html.DropDownListFor(model => model.ClientInfoId, null, "", htmlAttributes: new { @class = "form-control show-tick" })
+                            @Html.ValidationMessageFor(model => model.ClientInfoId, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group form-horizontal">
+                            @Html.HiddenFor(c => c.Id)
+                            <input id="btnCalculate" type="button" value="Calculate" class="btn btn-primary" />
+                            <input id="btnSubmit" type="button" value="Submit" class="btn btn-primary" />
+                        </div>
+                        <table id="reservationTable" class="table table-bordered table-hover display" style="width: 100%">
+                            <thead>
+                            <tr>
+                                <th readonly>Id</th>
+                                <th readonly>Client Id</th>
+                                <th>Date</th>
+                                <th>450</th>
+                                <th>675</th>
+                                <th>900</th>
+                            </tr>
+                            </thead>
+                            <tbody></tbody>
+                            <tfoot>
+                            <tr>
+                                <th></th>
+                                <th></th>
+                                <th>Total:</th>
+                                <th id="tHalf"></th>
+                                <th id="tSeven"></th>
+                                <th id="tOne"></th>
+                            </tr>
+                            </tfoot>
+                        </table>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section ViewSpecificJavascript
+{
+    <script src="~/Scripts/MilkManagement/MilkPurchase/reservation_form.js"></script>
+}

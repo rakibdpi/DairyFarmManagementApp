@@ -1,0 +1,117 @@
+﻿@model BusinessManagementSystemApp.Core.ViewModels.PaymentViewModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="row">
+    <div class="col-md-12 col-sm-12">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="box box-primary">
+                <div class="box-header with-border"><h4 class="box-title">Bill Receipt</h4></div>
+                <div class="box-body">
+                    <div class="col-md-7 col-sm-10=9">
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.AreaId, "Area", htmlAttributes: new { @class = "control-label" })
+                            @Html.DropDownListFor(model => model.AreaId, null, "", new { @class = "form-control show-tick" })
+                            @Html.ValidationMessageFor(model => model.AreaId, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.ClientInfoId, "Client", htmlAttributes: new { @class = "control-label" })
+                            @Html.DropDownListFor(model => model.ClientInfoId, null, "", new { @class = "form-control show-tick" })
+                            @Html.ValidationMessageFor(model => model.ClientInfoId, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Year, "Year", htmlAttributes: new { @class = "control-label" })
+                            <select class="form-control" id="Year">
+                                <option value="">Select</option>
+                                <option value="2021">2021</option>
+                                <option value="2020">2020</option>
+                                <option value="2019">2019</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Month, "Month", htmlAttributes: new { @class = "control-label" })
+                            <select class="form-control" id="Month">
+                                <option value="">Select</option>
+                                <option value="January">January</option>
+                                <option value="February">February</option>
+                                <option value="March">March</option>
+                                <option value="April">April</option>
+                                <option value="May">May</option>
+                                <option value="June">June</option>
+                                <option value="July">July</option>
+                                <option value="August">August</option>
+                                <option value="September">September</option>
+                                <option value="October">October</option>
+                                <option value="November">November</option>
+                                <option value="December">December</option>
+                            </select>
+                        </div>
+                        <div class="form-group form-horizontal">
+                            <input type="button" value="Load Clients" id="btnLoad" class="btn btn-info" />
+                            <input type="button" value="Submit" id="btnSubmit" class="btn btn-primary" />
+                            <input id="btnCancel" type="button" value="Clear" class="btn btn-primary" />
+                            <input id="btnSummary" type="button" value="Summary Report" class="btn btn-primary" />
+                            <input type="button" value="Due Bill" id="btnDueBill" class="btn btn-danger" />
+                        </div>
+                        <br />
+                    </div>
+                    <div class="col-md-5">
+                        <input type="button" value="Bill Details" id="btnDetails" class="btn btn-info" style="margin: 22px 26px;" />
+
+
+                        <div id="billDetails" style="margin-left: 26px">
+                            <label id="totalBill" style="font-size:30px;color:green"></label>
+                            <br />
+                            <label id="collectionBill" style="font-size:30px;color:green"></label>
+                            <br />
+                            <label id="dueBill" style="font-size: 30px; color: green">
+
+                            </label>  
+                            <br />
+                        </div>
+                        
+                        <label id="recentBill" style="font-size:30px;color:green"></label>
+
+                    </div>
+
+                    <div class="col-md-12">
+                        <table id="paymentsTable" class="table table-bordered table-hover display" style="width: 100%">
+                            <thead>
+                                <tr>
+                                    <th readonly>Area Id</th>
+                                    <th readonly>Client Id</th>
+                                    <th>Area</th>
+                                    <th>Code</th>
+                                    <th>Client</th>
+                                    <th>Phone No</th>
+                                    <th>Total Bill</th>
+                                    <th>Amount</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <a id="pdf" class="hidden" runat="server">click me</a>
+        }
+    </div>
+</div>
+
+@section ViewSpecificJavascript
+{
+    <script src="~/Scripts/MilkManagement/Payments/payment_script.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.6.1/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.6.1/js/buttons.flash.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.6.1/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.6.1/js/buttons.print.min.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+    <script src="~/Scripts/jquery.fancybox.js"></script>
+}

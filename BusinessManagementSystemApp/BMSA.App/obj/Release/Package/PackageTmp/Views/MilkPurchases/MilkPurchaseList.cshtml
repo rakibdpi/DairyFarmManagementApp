@@ -1,0 +1,70 @@
+﻿@model BusinessManagementSystemApp.Core.ViewModels.MilkPurchase.MilkPurchaseListViewModel
+@{
+    ViewBag.Title = "MilkPurchaseList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="row">
+    <div class="col-md-offset-1 col-md-10 col-sm-offset-1 col-sm-10 col-xs-12">
+        <div class="box box-info">
+            <div class="box-header with-border"><h4 class="box-title">Milk Purchase List</h4><a href="@Url.Action("MilkPurchaseForm")" class="btn btn-info btn-sm pull-right">New Entry</a></div>
+
+            <div class="box-body">
+                <div class="col-md-8 col-sm-8 col-xs-8">
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken();
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.MilkSuppliersId, "Supplier", htmlAttributes: new { @class = "control -label" })
+                            @Html.DropDownListFor(c => c.MilkSuppliersId, null, "", htmlAttributes: new { @class = "form-control ", @tabindex = "20" })
+                            @Html.ValidationMessageFor(model => model.MilkSuppliersId, "", new { @class = "text-danger" })
+                        </div>
+                    
+
+
+
+                    }
+
+                </div>
+
+                <div class="col-md-4 col-sm-4 col-xs-4">
+                    @* <a class="btn btn-info btn-sm pull-right" href="@Url.Action("AircraftList", "Aircrafts")"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back To List</a>*@
+                </div>
+                
+                <table id="milkPurchaseHistory" class="table table-bordered table-hover display">
+                    <thead>
+                    <tr>
+                        <th>Supplier</th>
+                        <th>Date</th>
+                        <th>MilkQuantity</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+
+
+                @* *********************************************************************** *@
+
+
+            </div>
+        </div>
+
+
+        <div class="box box-info">
+            <div class="box-header"><h5 class="box-title">History</h5></div>
+            <div class="box-body">
+            </div>
+        </div>
+
+    </div>
+</div>
+@section ViewSpecificJavascript
+{
+    <script src="~/Scripts/MilkManagement/MilkPurchase/milkPurchaseList.js"></script>
+}
+
+

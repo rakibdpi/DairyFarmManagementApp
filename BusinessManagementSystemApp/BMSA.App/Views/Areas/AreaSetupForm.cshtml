@@ -1,0 +1,88 @@
+﻿@model BusinessManagementSystemApp.Core.ViewModels.MilkMamagement.AreaViewModel
+@{
+    ViewBag.Title = "Area Setup Form";
+}
+
+
+<div class="row">
+    <div class="col-md-offset-1 col-md-10 col-sm-offset-1 col-sm-10 col-xs-12">
+        <div class="panel panel-info">
+            <div class="panel-heading">Area Setup </div>
+            <div class="panel-body">
+                <div class="col-md-8 col-sm-8 col-xs-8">
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken();
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.DeliveryManId, "Delivery Man *", htmlAttributes: new { @class = "control-label" })
+                            @Html.DropDownListFor(c => c.DeliveryManId, null, "", htmlAttributes: new { @class = "form-control show-tick" })
+                            @Html.ValidationMessageFor(model => model.DeliveryManId, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label" })
+                            @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.CodeNo, htmlAttributes: new { @class = "control-label" })
+                            @Html.EditorFor(model => model.CodeNo, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.CodeNo, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.IsActive, htmlAttributes: new { @class = "control-label" })
+                            <div class="checkbox">
+                                @Html.EditorFor(model => model.IsActive)
+                                @Html.ValidationMessageFor(model => model.IsActive, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.HiddenFor(c => c.Id)
+                            <input id="btnSubmit" type="button" value="Submit" class="btn btn-primary" />
+                        </div>
+
+                        @*<div class="form-group">
+                <label class="control-label" style="color: @ViewBag.Color">@ViewBag.Message</label>
+            </div>*@
+                    }
+
+                </div>
+
+                <div class="col-md-4 col-sm-4 col-xs-4">
+                    @* <a class="btn btn-info btn-sm pull-right" href="@Url.Action("AircraftList", "Aircrafts")"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back To List</a>*@
+                </div>
+
+                @* *********************************************************************** *@
+
+
+            </div>
+        </div>
+
+
+        <div class="box box-info">
+            <div class="box-header"><h5 class="box-title">History</h5></div>
+            <div class="box-body">
+                <table id="areaHistory" class="table table-bordered table-hover display">
+                    <thead>
+                        <tr>
+                            <th>Delivery Man</th>
+                            <th>Name</th>
+                            <th>Code No</th>
+                            <th>Is Active</th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+@section ViewSpecificJavascript
+{
+    <script src="~/Scripts/MilkManagement/Area/areaSetupForm.js"></script>
+}

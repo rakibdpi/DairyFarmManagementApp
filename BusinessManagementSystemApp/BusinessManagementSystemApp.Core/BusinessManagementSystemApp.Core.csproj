@@ -1,0 +1,220 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1AE0FA98-2CC0-45F9-9E74-A8AA83676297}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BusinessManagementSystemApp.Core</RootNamespace>
+    <AssemblyName>BusinessManagementSystemApp.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper, Version=7.0.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.7.0.1\lib\net45\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.2\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.2\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\netstandard1.0\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AutoMapperConfigurations\AutoMapperConfiguration.cs" />
+    <Compile Include="AutoMapperConfigurations\MappingsProfile.cs" />
+    <Compile Include="Dtos\AsthaShopDto\BusinessPartnerInfoDto.cs" />
+    <Compile Include="Dtos\AsthaShopDto\DataTypeDto.cs" />
+    <Compile Include="Dtos\AsthaShopDto\TransectionDataDto.cs" />
+    <Compile Include="Dtos\AsthaShopDto\TransectionSearchDto.cs" />
+    <Compile Include="Dtos\CustomerModules\CustomerDto.cs" />
+    <Compile Include="Dtos\MilkMamagement\ClientInfoDto.cs" />
+    <Compile Include="Dtos\MilkMamagement\MonthlyReservationDto.cs" />
+    <Compile Include="Dtos\MilkMamagement\ReservationListDto.cs" />
+    <Compile Include="Dtos\MilkMamagement\SendSmsDto.cs" />
+    <Compile Include="Dtos\MilkMamagement\SetupModules\AreaDto.cs" />
+    <Compile Include="Dtos\MilkMamagement\SetupModules\CowSetupDto.cs" />
+    <Compile Include="Dtos\MilkMamagement\SmsTemplateDto.cs" />
+    <Compile Include="Dtos\MilkProductionDtos\ProductionDto.cs" />
+    <Compile Include="Dtos\MilkProductionDtos\ProductionListDto.cs" />
+    <Compile Include="Dtos\MilkProductionDtos\ProductionReportDto.cs" />
+    <Compile Include="Dtos\MilkPurchase\MilkPurchaseDto.cs" />
+    <Compile Include="Dtos\MilkPurchase\PurchaseReportDataSet.cs" />
+    <Compile Include="Dtos\MilkPurchase\PurchaseReportDto.cs" />
+    <Compile Include="Dtos\MilkSellsDtos\PacketSaleDto.cs" />
+    <Compile Include="Dtos\MilkSellsDtos\RowSaleDto.cs" />
+    <Compile Include="Dtos\OilSell\OilSaleListDto.cs" />
+    <Compile Include="Dtos\OilSell\OilSellDto.cs" />
+    <Compile Include="Dtos\PaymentDtos\PaymentDto.cs" />
+    <Compile Include="Dtos\PaymentDtos\PaymentList.cs" />
+    <Compile Include="Dtos\Purchase\PurchaseDetailsDto.cs" />
+    <Compile Include="Dtos\Purchase\PurchaseDto.cs" />
+    <Compile Include="Dtos\Sales\PacketSaleListDto.cs" />
+    <Compile Include="Dtos\Sales\SalesDetailsDto.cs" />
+    <Compile Include="Dtos\Sales\SalesDto.cs" />
+    <Compile Include="Dtos\SetupModules\CategoryDto.cs" />
+    <Compile Include="Dtos\SetupModules\ProductDto.cs" />
+    <Compile Include="Dtos\SupplierModules\SupplierDto.cs" />
+    <Compile Include="IdentityCore\ApplicationDbContext.cs" />
+    <Compile Include="IdentityCore\ApplicationRole.cs" />
+    <Compile Include="IdentityCore\ApplicationUser.cs" />
+    <Compile Include="IdentityCore\AspControllerAndActionName.cs" />
+    <Compile Include="IdentityCore\AspNetPermission.cs" />
+    <Compile Include="IdentityCore\LoginHistory.cs" />
+    <Compile Include="IdentityCore\PermissionDto.cs" />
+    <Compile Include="IdentityCore\PermissionViewModel.cs" />
+    <Compile Include="IdentityCore\PermisssionName.cs" />
+    <Compile Include="IManager.cs" />
+    <Compile Include="IUnitOfWork.cs" />
+    <Compile Include="Models\AsthaShop\BusinessPartnerInfo.cs" />
+    <Compile Include="Models\AsthaShop\DataType.cs" />
+    <Compile Include="Models\AsthaShop\TransectionData.cs" />
+    <Compile Include="Models\BaseDomain.cs" />
+    <Compile Include="Dtos\OperationModules\MainEntryPdfDto.cs" />
+    <Compile Include="Models\Base\DateTimeFormatter.cs" />
+    <Compile Include="Models\CustomerModules\Customer.cs" />
+    <Compile Include="Models\DueBill\DueBills.cs" />
+    <Compile Include="Models\Ghee\GheeSale.cs" />
+    <Compile Include="Models\MilkMamagement\ClientInfo.cs" />
+    <Compile Include="Models\MilkMamagement\MonthlyReservation.cs" />
+    <Compile Include="Models\MilkMamagement\SetupModules\Area.cs" />
+    <Compile Include="Models\MilkMamagement\SetupModules\CowSetup.cs" />
+    <Compile Include="Models\MilkProduction\MilkingTime.cs" />
+    <Compile Include="Models\MilkProduction\PacketType.cs" />
+    <Compile Include="Models\MilkProduction\Production.cs" />
+    <Compile Include="Models\MilkSells\PacketSale.cs" />
+    <Compile Include="Models\MilkSells\RowSale.cs" />
+    <Compile Include="Models\MilkPurchases\MilkPurchase.cs" />
+    <Compile Include="Models\MilkPurchases\MilkSuppliers.cs" />
+    <Compile Include="Models\OilSell\OilSells.cs" />
+    <Compile Include="Models\Payments\Payment.cs" />
+    <Compile Include="Models\PurchaseModules\Purchase.cs" />
+    <Compile Include="Models\PurchaseModules\PurchaseDetails.cs" />
+    <Compile Include="Models\Sales\SalesReport.cs" />
+    <Compile Include="Models\Sales\Sales.cs" />
+    <Compile Include="Models\Sales\SalesDetails.cs" />
+    <Compile Include="Models\Sales\Transaction.cs" />
+    <Compile Include="Models\SetupModules\Category.cs" />
+    <Compile Include="Models\SetupModules\DeliveryMan.cs" />
+    <Compile Include="Models\SetupModules\DriveLetter.cs" />
+    <Compile Include="Models\SetupModules\Product.cs" />
+    <Compile Include="Models\SupplierModules\Supplier.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReportModels\BillReport.cs" />
+    <Compile Include="ReportModels\BilReportMaster.cs" />
+    <Compile Include="ReportModels\CowSaleReport.cs" />
+    <Compile Include="ReportModels\CowSellBillSms.cs" />
+    <Compile Include="ReportModels\MilkDetailsSummary.cs" />
+    <Compile Include="ReportModels\OilReport\OilBillReport.cs" />
+    <Compile Include="ReportModels\SalesDetailsReport.cs" />
+    <Compile Include="ReportModels\ViewModels\BillReportViewModel.cs" />
+    <Compile Include="ReportModels\ViewModels\BillSummaryVm.cs" />
+    <Compile Include="ReportModels\ViewModels\ClientInfoVm.cs" />
+    <Compile Include="ReportModels\ViewModels\DueBillsViewModel.cs" />
+    <Compile Include="Repositories\AsthaOnlineShop\IBusinessPartnerInfoRepository.cs" />
+    <Compile Include="Repositories\AsthaOnlineShop\IDatatransectionRepository.cs" />
+    <Compile Include="Repositories\AsthaOnlineShop\IDataTypeRepository.cs" />
+    <Compile Include="Repositories\CustomerModules\ICustomerRepository.cs" />
+    <Compile Include="Repositories\Ghee\IGheeSalesRepository.cs" />
+    <Compile Include="Repositories\IRepository.cs" />
+    <Compile Include="Repositories\MilkManagement\IAreaRepository.cs" />
+    <Compile Include="Repositories\MilkManagement\IClientInfoRepository.cs" />
+    <Compile Include="Repositories\MilkManagement\ICowSetupRepository.cs" />
+    <Compile Include="Repositories\MilkManagement\IDeliveryManRepository.cs" />
+    <Compile Include="Repositories\MilkManagement\IDueBillRepository.cs" />
+    <Compile Include="Repositories\MilkManagement\IMonthlyReservationRepository.cs" />
+    <Compile Include="Repositories\MilkSellsInterfaces\IPacketSaleRepository.cs" />
+    <Compile Include="Repositories\MilkSellsInterfaces\IRowSaleRepository.cs" />
+    <Compile Include="Repositories\OilSell\IOilSellRepository.cs" />
+    <Compile Include="Repositories\PaymentInterfaces\IPaymentRepository.cs" />
+    <Compile Include="Repositories\ProductionInterfaces\IPacketTypeRepository.cs" />
+    <Compile Include="Repositories\MilkPurchase\IMilkPurchaseRepository.cs" />
+    <Compile Include="Repositories\MilkPurchase\IMilkSupplierRepository.cs" />
+    <Compile Include="Repositories\ProductionInterfaces\IProductionRepository.cs" />
+    <Compile Include="Repositories\PurchaseModules\IPurchaseDetailsRepository.cs" />
+    <Compile Include="Repositories\PurchaseModules\IPurchaseRepository.cs" />
+    <Compile Include="Repositories\SalesModules\ISalesDetailsRepository.cs" />
+    <Compile Include="Repositories\SalesModules\ISalesRepository.cs" />
+    <Compile Include="Repositories\SalesModules\ITransactionRepository.cs" />
+    <Compile Include="Repositories\SetupModules\ICategoryRepository.cs" />
+    <Compile Include="Repositories\SetupModules\IDriveLetterRepository.cs" />
+    <Compile Include="Repositories\SetupModules\IProductRepository.cs" />
+    <Compile Include="Repositories\SupplierModules\ISupplierRepository.cs" />
+    <Compile Include="ViewModels\AsthaShop\BusinessPartnerInfoViewModel.cs" />
+    <Compile Include="ViewModels\AsthaShop\TransectionDataViewModel.cs" />
+    <Compile Include="ViewModels\AsthaShop\TransectionSearchViewModel.cs" />
+    <Compile Include="ViewModels\BillSummary.cs" />
+    <Compile Include="ViewModels\CategoryViewModels.cs" />
+    <Compile Include="ViewModels\CustomerViewModel.cs" />
+    <Compile Include="ViewModels\GheeSale\GheeSaleViewModel.cs" />
+    <Compile Include="ViewModels\HomeViewModel.cs" />
+    <Compile Include="ViewModels\MilkMamagement\AreaViewModel.cs" />
+    <Compile Include="ViewModels\MilkMamagement\ClientInfoViewModels.cs" />
+    <Compile Include="ViewModels\MilkMamagement\CowSetupViewModel.cs" />
+    <Compile Include="ViewModels\MilkMamagement\MonthlyReservationViewModel.cs" />
+    <Compile Include="ViewModels\MilkMamagement\ReportViewModel.cs" />
+    <Compile Include="ViewModels\MilkMamagement\SmsSendViewModel.cs" />
+    <Compile Include="ViewModels\MilkProductionViewModels\ProductionParameter.cs" />
+    <Compile Include="ViewModels\MilkProductionViewModels\ProductionViewModel.cs" />
+    <Compile Include="ViewModels\MilkPurchase\MilkPurchaseListViewModel.cs" />
+    <Compile Include="ViewModels\MilkPurchase\MilkPurchaseViewModel.cs" />
+    <Compile Include="ViewModels\MilkPurchase\MilkSupplierViewModel.cs" />
+    <Compile Include="ViewModels\MilkSalesViewModel\MilkSaleViewModel.cs" />
+    <Compile Include="ViewModels\OilSell\OilSellViewModel.cs" />
+    <Compile Include="ViewModels\PaymentViewModel.cs" />
+    <Compile Include="ViewModels\ProductViewModel.cs" />
+    <Compile Include="ViewModels\PurchaseViewModel.cs" />
+    <Compile Include="ViewModels\PurchaseViewModelForDataPass.cs" />
+    <Compile Include="ViewModels\ReportViewModels\ProductionReportViewModel.cs" />
+    <Compile Include="ViewModels\ReportViewModels\PurchaseReportViewModel.cs" />
+    <Compile Include="ViewModels\SalesDetailsViewModel.cs" />
+    <Compile Include="ViewModels\SalesViewModel.cs" />
+    <Compile Include="ViewModels\SupplierViewModels.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

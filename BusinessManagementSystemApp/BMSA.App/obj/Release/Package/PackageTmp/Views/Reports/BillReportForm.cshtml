@@ -1,0 +1,229 @@
+﻿@model BusinessManagementSystemApp.Core.ReportModels.ViewModels.BillReportViewModel
+@{
+    ViewBag.Title = "Bill Report";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-12 col-sm-12">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+
+            <div class="col-md-7 col-sm-7">
+                <div class="box box-primary">
+                    <div class="box-header with-border"><h4 class="box-title">Bill Generate</h4></div>
+                    <div class="box-body">
+                        <div class="col-md-8 col-sm-8">
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.AreaId, "Area", htmlAttributes: new { @class = "control-label" })
+                                @Html.DropDownListFor(model => model.AreaId, null, "", new { @class = "form-control show-tick" })
+                                @Html.ValidationMessageFor(model => model.AreaId, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.ClientId, "Client", htmlAttributes: new { @class = "control-label" })
+                                @Html.DropDownListFor(model => model.ClientId, null, "", new { @class = "form-control show-tick" })
+                                @Html.ValidationMessageFor(model => model.ClientId, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.MonthId, "Month", htmlAttributes: new { @class = "control-label" })
+                                <select class="form-control" id="MonthId">
+                                    <option value="">Select</option>
+                                    <option value="January">January</option>
+                                    <option value="February">February</option>
+                                    <option value="March">March</option>
+                                    <option value="April">April</option>
+                                    <option value="May">May</option>
+                                    <option value="June">June</option>
+                                    <option value="July">July</option>
+                                    <option value="August">August</option>
+                                    <option value="September">September</option>
+                                    <option value="October">October</option>
+                                    <option value="November">November</option>
+                                    <option value="December">December</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.AmountType, "Amount Type", htmlAttributes: new { @class = "control-label" })
+                                <select class="form-control" id="AmountType">
+                                    <option value="">Select</option>
+                                    <option value="Add">Add</option>
+                                    <option value="Deduct">Deduct</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.DueAmount, "Due Amount", htmlAttributes: new { @class = "control-label" })
+                                @Html.EditorFor(model => model.DueAmount, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.DueAmount, "", new { @class = "text-danger" })
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-3 col-sm-3"> 
+                                    <div class="form-group">
+                                        <input type="button" value="Generate" id="btnGenerate" class="btn btn-primary btn-block pull-left" style="margin-bottom: 124px;" />
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-5 col-sm-5">
+                <div class="box box-primary">
+                    <div class="box-header with-border"><h4 class="box-title">Ghee Sell</h4></div>
+                    <div class="box-body">
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.OneFourthKg, "250 Gm", htmlAttributes: new { @class = "control-label" })
+                            @Html.EditorFor(model => model.OneFourthKg, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.OneFourthKg, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.HalfKg, "500 Gm", htmlAttributes: new { @class = "control-label" })
+                            @Html.EditorFor(model => model.HalfKg, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.HalfKg, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.OneKg, "1000 Gm", htmlAttributes: new { @class = "control-label" })
+                            @Html.EditorFor(model => model.OneKg, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.OneKg, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="box box-primary">
+                    <div class="box-header with-border"><h4 class="box-title">Mustard Oil Sell</h4></div>
+                    <div class="box-body">
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.OilOneKg, "1 Kg", htmlAttributes: new { @class = "control-label" })
+                            @Html.EditorFor(model => model.OilOneKg, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.OilOneKg, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.OilTwoKg, "2 Kg", htmlAttributes: new { @class = "control-label" })
+                            @Html.EditorFor(model => model.OilTwoKg, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.OilTwoKg, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.OilFiveKg, "5 Kg", htmlAttributes: new { @class = "control-label" })
+                            @Html.EditorFor(model => model.OilFiveKg, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.OilFiveKg, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+
+ 
+</div>
+<div class="row">
+    <div class="col-md-12" style="margin-left:16px;">
+        <div class="box box-primary">
+            <div class="box-header with-border"><h4 class="box-title">Bill Entry</h4></div>
+            <div class="box-body">
+                <div class="row">
+
+                    <div class="form-group col-md-6" style="margin-left:24px;">
+                        @Html.LabelFor(model => model.StartDate, "Start Date *", htmlAttributes: new { @class = "control-label" })
+                        @Html.EditorFor(model => model.StartDate, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.StartDate, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group col-md-8 form-horizontal" style="margin-left:24px;">
+                        @*@Html.HiddenFor(c => c.Id)*@
+                        <input id="btnLoad" type="button" value="Load Detials" class="btn btn-primary" />
+                        <input id="btnSubmit" type="button" value="Submit" class="btn btn-primary" />
+                        <input id="btnCancel" type="button" value="Clear" class="btn btn-primary" />
+                        @*<input id="btnPrevious" type="button" value="Previous" class="btn btn-primary" />
+                        <input id="btnNext" type="button" value="Next" class="btn btn-primary" />*@
+                    </div>
+
+                    <div class="form-group col-md-10">
+                        <table id="salesTable" class="table table-bordered table-hover display" style="width: 100%; margin-left: 2%">
+                            <thead>
+                                <tr>
+                                    <th readonly>Id</th>
+                                    <th readonly>Customer</th>
+                                    <th>Day</th>
+                                    <th>450 Gm</th>
+                                    <th>675 Gm</th>
+                                    <th>900 Gm</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+
+
+        <a id="pdf" class="hidden" runat="server">click me</a>
+
+        @section ViewSpecificJavascript
+{
+
+            <script>
+
+                $('#exampleModal').on('show.bs.modal', function (event) {
+                    var button = $(event.relatedTarget) // Button that triggered the modal
+                    var recipient = button.data('whatever') // Extract info from data-* attributes
+                    // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+                    // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+                    var modal = $(this)
+                    modal.find('.modal-title').text('Milk Sale')
+                    modal.find('.modal-body input').val(recipient)
+                })
+
+
+
+            </script>
+
+
+
+
+
+
+
+
+
+            <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+            <script src="~/Scripts/jquery.fancybox.js"></script>
+
+            <script type="text/javascript">
+                function OnSuccess(data) {
+                    setTimeout(function () {
+                        $("#pdf").attr("href", data);
+                        var reportBox = $("#pdf").fancybox({
+                            'frameWidth': 100,
+                            'frameHeight': 495,
+                            'overlayShow': true,
+                            'hideOnContentClick': false,
+                            'type': 'iframe',
+                            helpers: {
+                                // prevents closing when clicking OUTSIDE fancybox
+                                overlay: { closeClick: false }
+                            }
+
+                        }).trigger('click');
+                    }, 1000);
+                }
+                function OnFailure(data) {
+                    alert("Report Fail.");
+                }
+            </script>
+
+            <script src="~/Scripts/ReportScript/billReport.js"></script>
+        }
+

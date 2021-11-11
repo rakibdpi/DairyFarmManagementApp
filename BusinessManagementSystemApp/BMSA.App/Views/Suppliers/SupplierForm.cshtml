@@ -1,0 +1,120 @@
+﻿@model BusinessManagementSystemApp.Core.ViewModels.SupplierViewModels
+@{
+    ViewBag.Title = "Suppliers";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="row">
+    <div class="col-md-offset-1 col-md-10 col-sm-offset-1 col-sm-10 col-xs-12">
+        <div class="panel panel-info">
+            <div class="panel-heading">Supplier Info</div>
+            <div class="panel-body">
+                <div class="col-md-8 col-sm-8 col-xs-8">
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken();
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Code, "Code", htmlAttributes: new { @class = "control-label" })
+                            @Html.EditorFor(model => model.Code, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Code, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Name, "Name", htmlAttributes: new { @class = "control-label" })
+                            @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Address, "Address", htmlAttributes: new { @class = "control-label" })
+                            @Html.EditorFor(model => model.Address, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Email, "Email", htmlAttributes: new { @class = "control-label" })
+                            @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Contact, "Contact", htmlAttributes: new { @class = "control-label" })
+                            @Html.EditorFor(model => model.Contact, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Contact, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.ContactPerson, "Contact Person", htmlAttributes: new { @class = "control-label" })
+                            @Html.EditorFor(model => model.ContactPerson, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.ContactPerson, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            @Html.HiddenFor(c => c.Id)
+                            <input id="btnSubmit" type="button" value="Submit" class="btn btn-primary" />
+                        </div>
+                    }
+                </div>
+
+                <div class="col-md-4 col-sm-4">
+                    <div class="form-group" style="height: 296px">
+                        <label class="control-label">Image</label><br />
+                        <img id="imageView" class="img-thumbnail" src="~/images/file-photo-o.png" alt="Person image" height="160px" width="140px" />
+                        <br />
+                        <br />
+                        <input id="pdfFiles" name="pdfFiles" class="form-control" type='file' onchange="readURL(this);" />
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+        <div class="box box-info">
+            <div class="box-header"><h5 class="box-title">Supplier History</h5></div>
+            <div class="box-body">
+                <table id="supplierHisotryTable" class="table table-bordered table-hover display">
+                    <thead>
+                        <tr>
+                            <th>Code</th>
+                            <th>Name</th>
+                            <th>Address</th>
+                            <th>Email</th>
+                            <th>Contact</th>
+                            <th>Contact Person</th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+@section ViewSpecificJavascript
+{
+
+    <script type="text/javascript">
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    $('#imageView')
+                        .attr('src', e.target.result);
+                };
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+    </script>
+
+
+    <script src="~/Scripts/Supplier/supplierForm.js"></script>
+
+}
+
+

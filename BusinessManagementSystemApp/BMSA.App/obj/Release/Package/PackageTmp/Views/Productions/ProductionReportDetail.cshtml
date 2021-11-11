@@ -1,0 +1,136 @@
+﻿@using System.Linq
+@model BusinessManagementSystemApp.Core.ViewModels.ReportViewModels.ProductionReportDataSet
+@{
+    ViewBag.Title = "ProductionReportDetail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        @if (Model != null)
+        {
+            <div class="panel panel-info">
+                <div class="panel-heading"><a class="panel-title" style="font-size: 20px">NORTH BENGAL DAIRY</a> <a href="@Url.Action("ProductionReport")" class="btn btn-info btn-sm pull-right"><span class="glyphicon glyphicon-arrow-left"></span></a></div>
+                <div class="panel-body">
+                    <div class="row" style="padding-right: 50px">
+                        <div class="col-md-12">
+                            <div class="form-group form-horizontal">
+                                <div class="form-group">
+                                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2" style="width: 10%">
+                                        <label class="control-label">Company:</label>
+                                    </div>
+                                    <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10" style="margin-top: 5px">
+                                        @Html.DisplayFor(c => c.CompanyName)
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group form-horizontal">
+                                <div class="form-group">
+                                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2" style="width: 10%">
+                                        <label class="control-label">Phone:</label>
+                                    </div>
+                                    <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10" style="margin-top: 5px">
+                                        @Html.DisplayFor(c => c.MobileNo)
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group form-horizontal">
+                                <div class="form-group">
+                                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2" style="width: 10%">
+                                        <label class="control-label">Address:</label>
+                                    </div>
+                                    <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10" style="margin-top: 5px">
+                                        @Html.DisplayFor(c => c.CompanyAddress)
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="form-group form-horizontal">
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                    <div class="form-group">
+                                        <b style="font-size: 18px">Production Report</b>
+
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <hr/>
+                        <br/>
+                        <br/>
+                    </div>
+                    <div class="row">
+
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <hr/>
+                            <div class="form-group">
+                                @if (Model.DayParameter != "0")
+                                {
+                                    <h4 style="font-size: 16px">Production Report For @Model.DayParameter, @Model.MonthParameter , @Model.YearParameter </h4>
+                                }
+                                else
+                                {
+                                    <h4 style="font-size: 16px">Production Report For @Model.MonthParameter , @Model.YearParameter </h4>
+                                }
+                            </div>
+
+                            <table id="list" class="table table-bordered table-striped" style="width: 100%; background: rgb(92, 72, 113); color: white">
+                                <thead>
+                                <tr>
+                                    <th rowspan="2">Date</th>
+                                    <th rowspan="2">Cow</th>
+                                    <th colspan="4">Quantity</th>
+                                    <th rowspan="2">Total</th>
+                                </tr>
+                                <tr>
+                                    <th>Morning</th>
+                                    <th>Afternoon</th>
+                                    <th>Night</th>
+                                    <th>Other</th>
+                                    
+                                </tr>
+                                </thead>
+                                @if (Model != null && Model.Models.Count > 0)
+                                {
+                                    foreach (var dto in Model.Models)
+                                    {
+                                        <tbody style="color: black">
+                                        <tr>
+                                            <td>@Html.DisplayFor(model => dto.Date)</td>
+                                            <td>@Html.DisplayFor(model => dto.CowNo)</td>
+                                            <td>@Html.DisplayFor(model => dto.Morning)</td>
+                                            <td>@Html.DisplayFor(model => dto.Afternoon)</td>
+                                            <td>@Html.DisplayFor(model => dto.Night)</td>
+                                            <td>@Html.DisplayFor(model => dto.Other)</td>
+                                            <td>@Html.DisplayFor(model => dto.TotalQuantity)</td>
+                                        </tr>
+                                        </tbody>
+                                    }
+                                    <tfoot>
+                                    <tr>
+                                        <td></td>
+                                        <td><strong>Total</strong></td>
+                                        <td>@Model.Models.Sum(c => c.Morning)</td>
+                                        <td>@Model.Models.Sum(c => c.Afternoon)</td>
+                                        <td>@Model.Models.Sum(c => c.Night)</td>
+                                        <td>@Model.Models.Sum(c => c.Other)</td>
+                                        <td>@Model.Models.Sum(c=> c.TotalQuantity)</td>
+                                    </tr>
+                                    </tfoot>
+                                }
+
+                            </table>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+

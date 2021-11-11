@@ -1,0 +1,211 @@
+﻿@model BusinessManagementSystemApp.Core.ViewModels.SalesViewModel
+@{
+    ViewBag.Title = "Sale";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="row">
+    <div class="col-md-12 col-sm-12">
+        <div class="panel panel-info">
+            <div class="panel-heading">Cow Sell </div>
+            <div class="panel-body">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken();
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group ">
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.CustomerId, "Customer", htmlAttributes: new { @class = "control -label" })
+                                        @Html.DropDownListFor(c => c.CustomerId, null, "", htmlAttributes: new { @class = "form-control show-tick", @tabindex = "1" })
+                                        @Html.ValidationMessageFor(model => model.CustomerId, "", new { @class = "text-danger" })
+                                    </div>
+                                </div><!-- /.col-lg-6 -->
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.SalesDate, "Sales Date", htmlAttributes: new { @class = "control-label" })
+                                    <div class="input-group date">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-calendar"></i>
+                                        </div>
+                                        @Html.EditorFor(model => model.SalesDate, new { htmlAttributes = new { @class = "form-control datepicker" } })
+                                    </div>
+                                    @Html.ValidationMessageFor(model => model.SalesDate, "", new { @class = "text-danger" })
+                                </div>
+
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.CustomerName, "Name", htmlAttributes: new { @class = "control-label" })
+                                    @Html.EditorFor(model => model.CustomerName, new { htmlAttributes = new { @class = "form-control", @id = "SearchName", @disabled = "disabled" } })
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6">
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.PhoneNo, "Phone No", htmlAttributes: new { @class = "control-label" })
+                                    @Html.EditorFor(model => model.PhoneNo, new { htmlAttributes = new { @class = "form-control", @id = "SearchPhoneNo", @disabled = "disabled" } })
+                                </div>
+                            </div>
+                        </div>
+                        <hr />
+                        <br />
+                        <div class="row">
+                            <div class="panel panel-info">
+                                <div class="panel-body">
+                                    <div class="col-md-2">
+                                        <div class="form-group">
+                                            <label class="control-label">Cow No</label>
+                                            <select class="form-control" id="Type" name="Type" style="font-size: 16px;">
+                                                <option value="0">Select</option>
+                                                <option value="1">গরু</option>
+                                                <option value="2">ছাগল</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label class="control-label">Cow No</label>
+                                            <select id="ProductId" class="form-control show-tick"></select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label class="control-label">Weight</label>
+                                            <input id="Weight" class="form-control" type="text" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label class="control-label">Unit Price</label>
+                                            <input id="UnitPrice" class="form-control" type="text" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-1">
+                                        <div class="form-group">
+                                            <br />
+                                            <input type="hidden" id="dtlRowHiden" />
+                                            <input type="hidden" id="dtlIdHiden" value="0" />
+                                            <input id="btnAdd" class="btn btn-sm btn-primary" type="button" style="margin-top: 6px;" value="Add" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <br />
+                                <hr />
+                                <div class="row col-md-12">
+                                    <div class="form-group">
+                                        <table id="dtlTable" class="table table-bordered table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th>rowNumber</th>
+                                                    <th>dtlId</th>
+                                                    <th>productId</th>
+                                                    <th>Cow No</th>
+                                                    <th>Weight</th>
+                                                    <th>Unit Price</th>
+                                                    <th>Action</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody></tbody>
+                                        </table>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <br />
+
+                        <hr />
+
+
+
+                        <div class="row">
+                            <div class="panel panel-info">
+                                <div class="panel-body">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.InvoiceNo, "Invoice No", htmlAttributes: new { @class = "control-label" })
+                                            @Html.EditorFor(model => model.InvoiceNo, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
+                                        </div>
+                                        @*<div class="form-group">
+                                    @Html.LabelFor(model => model.OtherBill, "Other Bill", htmlAttributes: new { @class = "control-label" })
+                                    @Html.EditorFor(model => model.OtherBill, new { htmlAttributes = new { @class = "form-control" } })
+                                </div>*@
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.Payable, "Payable", htmlAttributes: new { @class = "control-label" })
+                                            @Html.EditorFor(model => model.Payable, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
+                                        </div>
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.InvoiceNo, "Last Invoice No", htmlAttributes: new { @class = "control-label" })
+                                            <input type="text" id="lastInvoiceNo" name="lastInvoiceNo" class="form-control" />
+                                        </div>
+
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.TotalBill, "Total Bill", htmlAttributes: new { @class = "control-label" })
+                                            @Html.EditorFor(model => model.TotalBill, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
+
+                                        </div>
+
+                                        @*<div class="form-group">
+                                    @Html.LabelFor(model => model.Discount, "Discount", htmlAttributes: new { @class = "control-label" })
+                                    @Html.EditorFor(model => model.Discount, new { htmlAttributes = new { @class = "form-control" } })
+                                </div>*@
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.PayAmount, "Pay Amount", htmlAttributes: new { @class = "control-label" })
+                                            @Html.EditorFor(model => model.PayAmount, new { htmlAttributes = new { @class = "form-control" } })
+                                        </div>
+
+                                        <div class="form-group">
+                                            <input id="btnPrint" class="btn btn-success" type="button" value="Invoice Print" style="margin-top: 25px;" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.TransportCost, "Transport Cost", htmlAttributes: new { @class = "control-label" })
+                                            @Html.EditorFor(model => model.TransportCost, new { htmlAttributes = new { @class = "form-control" } })
+                                        </div>
+                                        <div class="form-group">
+                                            <input id="btnSubmit" class="btn btn-primary" type="button" style="margin-top: 24px;" value="Submit" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        @*<div class="form-group">
+                    <label class="control-label" style="color: @ViewBag.Color">@ViewBag.Message</label>
+                </div>*@
+                    }
+
+                </div>
+
+
+
+                @* *********************************************************************** *@
+                <a id="pdf" class="hidden" runat="server">click me</a>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section ViewSpecificJavascript
+{
+    <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+    <script src="~/Scripts/jquery.fancybox.js"></script>
+
+    <script src="~/Content/js/sum().js"></script>
+    <script src="~/Scripts/Cow Sale/sales.js"></script>
+}
+
+

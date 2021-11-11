@@ -1,0 +1,159 @@
+﻿@model BusinessManagementSystemApp.Core.ViewModels.PurchaseViewModel
+@{
+    ViewBag.Title = "PurchaseForm";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row"/>
+<div class="col-md-offset-1 col-md-10 col-sm-offset-1 col-sm-10 col-xs-12">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken();
+        <div class="row">
+            <div class="col-md-8 col-sm-8 col-xs-8 col-md-offset-2 col-sm-offset-2">
+                <div class="panel panel-info">
+                    <div class="panel-heading">Supplier</div>
+                    <div class="panel-body">
+                        <div class="col-md-8 col-sm-8 col-xs-8 col-md-offset-2 col-sm-offset-2">
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.PurchaseDate, "Date", htmlAttributes: new { @class = "control-label" })
+                                <div class="input-group date">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-calendar"></i>
+                                    </div>
+                                    @Html.EditorFor(model => model.PurchaseDate, new { htmlAttributes = new { @class = "form-control datepicker" } })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.BillOrInvoiceNo, "Bill/Invoice No", htmlAttributes: new { @class = "control-label" })
+                                @Html.EditorFor(model => model.BillOrInvoiceNo, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.BillOrInvoiceNo, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.SupplierId, "Supplier", htmlAttributes: new { @class = "control -label" })
+                                @Html.DropDownListFor(c => c.SupplierId, null, "", htmlAttributes: new { @class = "form-control input-sessionChange", @tabindex = "20" })
+                                @Html.ValidationMessageFor(model => model.SupplierId, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="panel panel-info">
+                <div class="panel-heading">Product</div>
+                <div class="panel-body">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.ProductId, "Product", htmlAttributes: new { @class = "control -label" })
+                            @Html.DropDownListFor(c => c.ProductId, null, "", htmlAttributes: new { @class = "form-control input-sessionChange", @tabindex = "20" })
+                            @Html.ValidationMessageFor(model => model.ProductId, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Code, "Code", htmlAttributes: new { @class = "control-label" })
+                            @Html.EditorFor(model => model.Code, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.ManufacturedDate, "Manufactured Date", htmlAttributes: new { @class = "control-label" })
+                            <div class="input-group date">
+                                <div class="input-group-addon">
+                                    <i class="fa fa-calendar"></i>
+                                </div>
+                                @Html.EditorFor(model => model.ManufacturedDate, new { htmlAttributes = new { @class = "form-control datepicker" } })
+                            </div>
+                            @Html.ValidationMessageFor(model => model.ManufacturedDate, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.ExpireDate, "Expire Date", htmlAttributes: new { @class = "control-label" })
+                            <div class="input-group date">
+                                <div class="input-group-addon">
+                                    <i class="fa fa-calendar"></i>
+                                </div>
+                                @Html.EditorFor(model => model.ExpireDate, new { htmlAttributes = new { @class = "form-control datepicker" } })
+                            </div>
+                            @Html.ValidationMessageFor(model => model.ExpireDate, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.PreviousMrpTk, "Previous Mrp(Tk) ", htmlAttributes: new { @class = "control-label" })
+                            @Html.EditorFor(model => model.PreviousMrpTk, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
+                            @Html.ValidationMessageFor(model => model.PreviousMrpTk, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Remarks, "Remarks", htmlAttributes: new { @class = "control-label" })
+                            <textarea class="form-control " cols="20" id="Remarks" name="Remarks" rows="5" tabindex="3"></textarea>
+                            @Html.ValidationMessageFor(model => model.Remarks, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            @Html.HiddenFor(c => c.Id)
+                            <input id="btnAdd" type="button" value="Add" class="btn btn-primary" />
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Quantity, "Quantity", htmlAttributes: new { @class = "control-label" })
+                            @Html.EditorFor(model => model.Quantity, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Quantity, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.UnitPrize, "Unit Prize(Tk)", htmlAttributes: new { @class = "control-label" })
+                            @Html.EditorFor(model => model.UnitPrize, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.UnitPrize, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.TotalTk, "Total Price(Tk)", htmlAttributes: new { @class = "control-label" })
+                            @Html.EditorFor(model => model.TotalTk, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
+                            @Html.ValidationMessageFor(model => model.TotalTk, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.PreviousCostPrize, "PreviousCost Price(Tk) ", htmlAttributes: new { @class = "control-label" })
+                            @Html.EditorFor(model => model.PreviousCostPrize, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
+                            @Html.ValidationMessageFor(model => model.PreviousCostPrize, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.MrpTk, "New Mrp(Tk) ", htmlAttributes: new { @class = "control-label" })
+                            @Html.EditorFor(model => model.MrpTk, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.MrpTk, "", new { @class = "text-danger" })
+                        </div>
+
+                    </div>
+
+
+
+                </div>
+            </div>
+            <div class="box box-info">
+                <div class="box-header"><h5 class="box-title">Purchase Product List</h5></div>
+                <div class="box-body">
+                    <table id="purchaseHistory" class="table table-bordered table-hover display">
+                        <thead>
+                        <tr>
+                            <th>ProductId</th>
+                            <th>Code</th>
+                            <th>ManufacturedDate</th>
+                            <th>ExpireDate</th>
+                            <th>Quantity</th>
+                            <th>UnitPrize</th>
+                            <th>TotalTk</th>
+                            <th>MrpTk</th>
+                        </tr>
+                        </thead>
+
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+            <input id="btnSubmit" type="button" value="Submit" class="btn btn-primary" />
+        </div>
+    }
+
+
+</div>
+
+@section ViewSpecificJavascript
+{
+    <script src="~/Scripts/Purchase/purchaseForm.js"></script>
+}
+
+

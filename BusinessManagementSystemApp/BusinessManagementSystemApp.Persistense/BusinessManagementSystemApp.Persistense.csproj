@@ -1,0 +1,448 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D0E932A3-E924-42B9-A602-C15D5119B611}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BusinessManagementSystemApp.Persistense</RootNamespace>
+    <AssemblyName>BusinessManagementSystemApp.Persistense</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServerCompact, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.SqlServerCompact.6.2.0\lib\net45\EntityFramework.SqlServerCompact.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.2\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.2\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.SqlServerCe, Version=4.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Compact.4.0.8876.1\lib\net40\System.Data.SqlServerCe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DatabaseConfigurations\BusinessManagementSystemDbContext.cs" />
+    <Compile Include="Migrations\201907091119308_CreateIdentityTable.cs" />
+    <Compile Include="Migrations\201907091119308_CreateIdentityTable.Designer.cs">
+      <DependentUpon>201907091119308_CreateIdentityTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201907101056469_CreateCategoryTable.cs" />
+    <Compile Include="Migrations\201907101056469_CreateCategoryTable.Designer.cs">
+      <DependentUpon>201907101056469_CreateCategoryTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201907220835552_CreateCategoryTable1.cs" />
+    <Compile Include="Migrations\201907220835552_CreateCategoryTable1.Designer.cs">
+      <DependentUpon>201907220835552_CreateCategoryTable1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201907220840264_UpdateProductTable.cs" />
+    <Compile Include="Migrations\201907220840264_UpdateProductTable.Designer.cs">
+      <DependentUpon>201907220840264_UpdateProductTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201907251130500_AddDriveLetterMenager.cs" />
+    <Compile Include="Migrations\201907251130500_AddDriveLetterMenager.Designer.cs">
+      <DependentUpon>201907251130500_AddDriveLetterMenager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908170602425_CreateCustomerTable.cs" />
+    <Compile Include="Migrations\201908170602425_CreateCustomerTable.Designer.cs">
+      <DependentUpon>201908170602425_CreateCustomerTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908181713461_CreateSupplierTable.cs" />
+    <Compile Include="Migrations\201908181713461_CreateSupplierTable.Designer.cs">
+      <DependentUpon>201908181713461_CreateSupplierTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908190803381_CreatePurchaseTable.cs" />
+    <Compile Include="Migrations\201908190803381_CreatePurchaseTable.Designer.cs">
+      <DependentUpon>201908190803381_CreatePurchaseTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908190806209_CreatePurchaseDetailTable.cs" />
+    <Compile Include="Migrations\201908190806209_CreatePurchaseDetailTable.Designer.cs">
+      <DependentUpon>201908190806209_CreatePurchaseDetailTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201909181122461_CreateIBusinessPartnerInfoTable.cs" />
+    <Compile Include="Migrations\201909181122461_CreateIBusinessPartnerInfoTable.Designer.cs">
+      <DependentUpon>201909181122461_CreateIBusinessPartnerInfoTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201910041749243_CreateClientInfoTable.cs" />
+    <Compile Include="Migrations\201910041749243_CreateClientInfoTable.Designer.cs">
+      <DependentUpon>201910041749243_CreateClientInfoTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201912231541246_CreateAreaTable.cs" />
+    <Compile Include="Migrations\201912231541246_CreateAreaTable.Designer.cs">
+      <DependentUpon>201912231541246_CreateAreaTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201912231751184_AddCowSetupsTableToDatabase.cs" />
+    <Compile Include="Migrations\201912231751184_AddCowSetupsTableToDatabase.Designer.cs">
+      <DependentUpon>201912231751184_AddCowSetupsTableToDatabase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201912241825587_AddProductionTableToDatabase.cs" />
+    <Compile Include="Migrations\201912241825587_AddProductionTableToDatabase.Designer.cs">
+      <DependentUpon>201912241825587_AddProductionTableToDatabase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201912241916350_ModifyProductionTableToDatabase.cs" />
+    <Compile Include="Migrations\201912241916350_ModifyProductionTableToDatabase.Designer.cs">
+      <DependentUpon>201912241916350_ModifyProductionTableToDatabase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202001011833531_AddMilkPurchaseAndMilkSellsTables.cs" />
+    <Compile Include="Migrations\202001011833531_AddMilkPurchaseAndMilkSellsTables.Designer.cs">
+      <DependentUpon>202001011833531_AddMilkPurchaseAndMilkSellsTables.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202001021608020_UpdateMilkPurchaseTable.cs" />
+    <Compile Include="Migrations\202001021608020_UpdateMilkPurchaseTable.Designer.cs">
+      <DependentUpon>202001021608020_UpdateMilkPurchaseTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202001250906576_CreateDataType.cs" />
+    <Compile Include="Migrations\202001250906576_CreateDataType.Designer.cs">
+      <DependentUpon>202001250906576_CreateDataType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202001250909435_CreateDataTransectionTable.cs" />
+    <Compile Include="Migrations\202001250909435_CreateDataTransectionTable.Designer.cs">
+      <DependentUpon>202001250909435_CreateDataTransectionTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202008171812598_AAA.cs" />
+    <Compile Include="Migrations\202008171812598_AAA.Designer.cs">
+      <DependentUpon>202008171812598_AAA.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202008171839563_UpdateClientInfoTable.cs" />
+    <Compile Include="Migrations\202008171839563_UpdateClientInfoTable.Designer.cs">
+      <DependentUpon>202008171839563_UpdateClientInfoTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202008280845557_ChangeColumnTypeFromPacketSalesTable.cs" />
+    <Compile Include="Migrations\202008280845557_ChangeColumnTypeFromPacketSalesTable.Designer.cs">
+      <DependentUpon>202008280845557_ChangeColumnTypeFromPacketSalesTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009101608145_AddMonthlyReservationsTable.cs" />
+    <Compile Include="Migrations\202009101608145_AddMonthlyReservationsTable.Designer.cs">
+      <DependentUpon>202009101608145_AddMonthlyReservationsTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009110546392_ModifyReservationsTable.cs" />
+    <Compile Include="Migrations\202009110546392_ModifyReservationsTable.Designer.cs">
+      <DependentUpon>202009110546392_ModifyReservationsTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009111048386_ModifyPacketSalesTable.cs" />
+    <Compile Include="Migrations\202009111048386_ModifyPacketSalesTable.Designer.cs">
+      <DependentUpon>202009111048386_ModifyPacketSalesTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009111413233_ModifyColumnInPacketSalesTable.cs" />
+    <Compile Include="Migrations\202009111413233_ModifyColumnInPacketSalesTable.Designer.cs">
+      <DependentUpon>202009111413233_ModifyColumnInPacketSalesTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009291730465_ClientInfoTableModified.cs" />
+    <Compile Include="Migrations\202009291730465_ClientInfoTableModified.Designer.cs">
+      <DependentUpon>202009291730465_ClientInfoTableModified.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202010231147575_ModifyClientInfosTable.cs" />
+    <Compile Include="Migrations\202010231147575_ModifyClientInfosTable.Designer.cs">
+      <DependentUpon>202010231147575_ModifyClientInfosTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011171619436_UpdateAreaTable.cs" />
+    <Compile Include="Migrations\202011171619436_UpdateAreaTable.Designer.cs">
+      <DependentUpon>202011171619436_UpdateAreaTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011172010017_AddDueBillTable.cs" />
+    <Compile Include="Migrations\202011172010017_AddDueBillTable.Designer.cs">
+      <DependentUpon>202011172010017_AddDueBillTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011260449263_AddAmountTypeInDueBillsTable.cs" />
+    <Compile Include="Migrations\202011260449263_AddAmountTypeInDueBillsTable.Designer.cs">
+      <DependentUpon>202011260449263_AddAmountTypeInDueBillsTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202012291211555_AddPaymetsTableToDatabase.cs" />
+    <Compile Include="Migrations\202012291211555_AddPaymetsTableToDatabase.Designer.cs">
+      <DependentUpon>202012291211555_AddPaymetsTableToDatabase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202101241336374_UpdateProductionTable.cs" />
+    <Compile Include="Migrations\202101241336374_UpdateProductionTable.Designer.cs">
+      <DependentUpon>202101241336374_UpdateProductionTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202101241812044_AgainUpdateProductionTable.cs" />
+    <Compile Include="Migrations\202101241812044_AgainUpdateProductionTable.Designer.cs">
+      <DependentUpon>202101241812044_AgainUpdateProductionTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202102251643372_AddDeliveryMenTableToDatabase.cs" />
+    <Compile Include="Migrations\202102251643372_AddDeliveryMenTableToDatabase.Designer.cs">
+      <DependentUpon>202102251643372_AddDeliveryMenTableToDatabase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202102251646534_AddColumnDeliveryManIdToAreasTable.cs" />
+    <Compile Include="Migrations\202102251646534_AddColumnDeliveryManIdToAreasTable.Designer.cs">
+      <DependentUpon>202102251646534_AddColumnDeliveryManIdToAreasTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202104201503088_CreateOilSalesTable.cs" />
+    <Compile Include="Migrations\202104201503088_CreateOilSalesTable.Designer.cs">
+      <DependentUpon>202104201503088_CreateOilSalesTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106061725182_UpdateCustomerTable.cs" />
+    <Compile Include="Migrations\202106061725182_UpdateCustomerTable.Designer.cs">
+      <DependentUpon>202106061725182_UpdateCustomerTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106071051427_UpdateProductTable1.cs" />
+    <Compile Include="Migrations\202106071051427_UpdateProductTable1.Designer.cs">
+      <DependentUpon>202106071051427_UpdateProductTable1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106082009559_CreateSalesTable.cs" />
+    <Compile Include="Migrations\202106082009559_CreateSalesTable.Designer.cs">
+      <DependentUpon>202106082009559_CreateSalesTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106101457490_UpdateProductTable2.cs" />
+    <Compile Include="Migrations\202106101457490_UpdateProductTable2.Designer.cs">
+      <DependentUpon>202106101457490_UpdateProductTable2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106101935037_UpdateTransectionTable.cs" />
+    <Compile Include="Migrations\202106101935037_UpdateTransectionTable.Designer.cs">
+      <DependentUpon>202106101935037_UpdateTransectionTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106241852294_CreateGheeTable.cs" />
+    <Compile Include="Migrations\202106241852294_CreateGheeTable.Designer.cs">
+      <DependentUpon>202106241852294_CreateGheeTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106241911181_chageGheeTable.cs" />
+    <Compile Include="Migrations\202106241911181_chageGheeTable.Designer.cs">
+      <DependentUpon>202106241911181_chageGheeTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106242015511_chagesGheeTable.cs" />
+    <Compile Include="Migrations\202106242015511_chagesGheeTable.Designer.cs">
+      <DependentUpon>202106242015511_chagesGheeTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106242127004_chagessGheeTable.cs" />
+    <Compile Include="Migrations\202106242127004_chagessGheeTable.Designer.cs">
+      <DependentUpon>202106242127004_chagessGheeTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202109161937497_UpdateOilsellTable.cs" />
+    <Compile Include="Migrations\202109161937497_UpdateOilsellTable.Designer.cs">
+      <DependentUpon>202109161937497_UpdateOilsellTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReportRepositories\BillReportRepository.cs" />
+    <Compile Include="Repositories\AsthaOnline\BusinessPartnerInfoRepository.cs" />
+    <Compile Include="Repositories\AsthaOnline\DatatransectionRepository.cs" />
+    <Compile Include="Repositories\AsthaOnline\DataTypeRepository.cs" />
+    <Compile Include="Repositories\CustomerModules\CustomerRepository.cs" />
+    <Compile Include="Repositories\Ghee\GheeSalesRepository.cs" />
+    <Compile Include="Repositories\MilkManagement\AreaRepository.cs" />
+    <Compile Include="Repositories\MilkManagement\ClientInfoRepository.cs" />
+    <Compile Include="Repositories\MilkManagement\CowSetupRepository.cs" />
+    <Compile Include="Repositories\MilkManagement\DeliveryManRepository.cs" />
+    <Compile Include="Repositories\MilkManagement\DueBillRepository.cs" />
+    <Compile Include="Repositories\MilkManagement\MonthlyReservationRepository.cs" />
+    <Compile Include="Repositories\MilkPurchaseRepositories\MilkPurchaseRepository.cs" />
+    <Compile Include="Repositories\MilkSellsRepositories\PacketSaleRepository.cs" />
+    <Compile Include="Repositories\MilkSellsRepositories\RowSaleRepository.cs" />
+    <Compile Include="Repositories\OilSell\OilSellRepository.cs" />
+    <Compile Include="Repositories\PaymentsRepositories\PaymentRepository.cs" />
+    <Compile Include="Repositories\ProductionRepositories\PacketTypeRepository.cs" />
+    <Compile Include="Repositories\MilkPurchaseRepositories\MilkSupplierRepository.cs" />
+    <Compile Include="Repositories\ProductionRepositories\ProductionRepository.cs" />
+    <Compile Include="Repositories\PurchaseModules\PurchaseDetailsRepository.cs" />
+    <Compile Include="Repositories\PurchaseModules\PurchaseRepository.cs" />
+    <Compile Include="Repositories\Repository.cs" />
+    <Compile Include="Repositories\SalesModules\SalesDetailsRepository.cs" />
+    <Compile Include="Repositories\SalesModules\SalesRepository.cs" />
+    <Compile Include="Repositories\SalesModules\TransactionRepository.cs" />
+    <Compile Include="Repositories\SetupModules\CategoryRepository.cs" />
+    <Compile Include="Repositories\SetupModules\DriveLetterRepository.cs" />
+    <Compile Include="Repositories\SetupModules\ProductRepository.cs" />
+    <Compile Include="Repositories\SupplierRepository\SupplierRepository.cs" />
+    <Compile Include="UnitOfWork.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BusinessManagementSystemApp.Core\BusinessManagementSystemApp.Core.csproj">
+      <Project>{1ae0fa98-2cc0-45f9-9e74-a8aa83676297}</Project>
+      <Name>BusinessManagementSystemApp.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201907091119308_CreateIdentityTable.resx">
+      <DependentUpon>201907091119308_CreateIdentityTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907101056469_CreateCategoryTable.resx">
+      <DependentUpon>201907101056469_CreateCategoryTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907220835552_CreateCategoryTable1.resx">
+      <DependentUpon>201907220835552_CreateCategoryTable1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907220840264_UpdateProductTable.resx">
+      <DependentUpon>201907220840264_UpdateProductTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907251130500_AddDriveLetterMenager.resx">
+      <DependentUpon>201907251130500_AddDriveLetterMenager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908170602425_CreateCustomerTable.resx">
+      <DependentUpon>201908170602425_CreateCustomerTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908181713461_CreateSupplierTable.resx">
+      <DependentUpon>201908181713461_CreateSupplierTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908190803381_CreatePurchaseTable.resx">
+      <DependentUpon>201908190803381_CreatePurchaseTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908190806209_CreatePurchaseDetailTable.resx">
+      <DependentUpon>201908190806209_CreatePurchaseDetailTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201909181122461_CreateIBusinessPartnerInfoTable.resx">
+      <DependentUpon>201909181122461_CreateIBusinessPartnerInfoTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910041749243_CreateClientInfoTable.resx">
+      <DependentUpon>201910041749243_CreateClientInfoTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201912231541246_CreateAreaTable.resx">
+      <DependentUpon>201912231541246_CreateAreaTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201912231751184_AddCowSetupsTableToDatabase.resx">
+      <DependentUpon>201912231751184_AddCowSetupsTableToDatabase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201912241825587_AddProductionTableToDatabase.resx">
+      <DependentUpon>201912241825587_AddProductionTableToDatabase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201912241916350_ModifyProductionTableToDatabase.resx">
+      <DependentUpon>201912241916350_ModifyProductionTableToDatabase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001011833531_AddMilkPurchaseAndMilkSellsTables.resx">
+      <DependentUpon>202001011833531_AddMilkPurchaseAndMilkSellsTables.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001021608020_UpdateMilkPurchaseTable.resx">
+      <DependentUpon>202001021608020_UpdateMilkPurchaseTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001250906576_CreateDataType.resx">
+      <DependentUpon>202001250906576_CreateDataType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001250909435_CreateDataTransectionTable.resx">
+      <DependentUpon>202001250909435_CreateDataTransectionTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008171812598_AAA.resx">
+      <DependentUpon>202008171812598_AAA.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008171839563_UpdateClientInfoTable.resx">
+      <DependentUpon>202008171839563_UpdateClientInfoTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008280845557_ChangeColumnTypeFromPacketSalesTable.resx">
+      <DependentUpon>202008280845557_ChangeColumnTypeFromPacketSalesTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009101608145_AddMonthlyReservationsTable.resx">
+      <DependentUpon>202009101608145_AddMonthlyReservationsTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009110546392_ModifyReservationsTable.resx">
+      <DependentUpon>202009110546392_ModifyReservationsTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009111048386_ModifyPacketSalesTable.resx">
+      <DependentUpon>202009111048386_ModifyPacketSalesTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009111413233_ModifyColumnInPacketSalesTable.resx">
+      <DependentUpon>202009111413233_ModifyColumnInPacketSalesTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009291730465_ClientInfoTableModified.resx">
+      <DependentUpon>202009291730465_ClientInfoTableModified.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202010231147575_ModifyClientInfosTable.resx">
+      <DependentUpon>202010231147575_ModifyClientInfosTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011171619436_UpdateAreaTable.resx">
+      <DependentUpon>202011171619436_UpdateAreaTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011172010017_AddDueBillTable.resx">
+      <DependentUpon>202011172010017_AddDueBillTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011260449263_AddAmountTypeInDueBillsTable.resx">
+      <DependentUpon>202011260449263_AddAmountTypeInDueBillsTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202012291211555_AddPaymetsTableToDatabase.resx">
+      <DependentUpon>202012291211555_AddPaymetsTableToDatabase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202101241336374_UpdateProductionTable.resx">
+      <DependentUpon>202101241336374_UpdateProductionTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202101241812044_AgainUpdateProductionTable.resx">
+      <DependentUpon>202101241812044_AgainUpdateProductionTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202102251643372_AddDeliveryMenTableToDatabase.resx">
+      <DependentUpon>202102251643372_AddDeliveryMenTableToDatabase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202102251646534_AddColumnDeliveryManIdToAreasTable.resx">
+      <DependentUpon>202102251646534_AddColumnDeliveryManIdToAreasTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104201503088_CreateOilSalesTable.resx">
+      <DependentUpon>202104201503088_CreateOilSalesTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106061725182_UpdateCustomerTable.resx">
+      <DependentUpon>202106061725182_UpdateCustomerTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106071051427_UpdateProductTable1.resx">
+      <DependentUpon>202106071051427_UpdateProductTable1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106082009559_CreateSalesTable.resx">
+      <DependentUpon>202106082009559_CreateSalesTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106101457490_UpdateProductTable2.resx">
+      <DependentUpon>202106101457490_UpdateProductTable2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106101935037_UpdateTransectionTable.resx">
+      <DependentUpon>202106101935037_UpdateTransectionTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106241852294_CreateGheeTable.resx">
+      <DependentUpon>202106241852294_CreateGheeTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106241911181_chageGheeTable.resx">
+      <DependentUpon>202106241911181_chageGheeTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106242015511_chagesGheeTable.resx">
+      <DependentUpon>202106242015511_chagesGheeTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106242127004_chagessGheeTable.resx">
+      <DependentUpon>202106242127004_chagessGheeTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202109161937497_UpdateOilsellTable.resx">
+      <DependentUpon>202109161937497_UpdateOilsellTable.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    if not exist "$(TargetDir)x86" md "$(TargetDir)x86"
+    xcopy /s /y "$(SolutionDir)packages\Microsoft.SqlServer.Compact.4.0.8876.1\NativeBinaries\x86\*.*" "$(TargetDir)x86"
+    if not exist "$(TargetDir)amd64" md "$(TargetDir)amd64"
+    xcopy /s /y "$(SolutionDir)packages\Microsoft.SqlServer.Compact.4.0.8876.1\NativeBinaries\amd64\*.*" "$(TargetDir)amd64"</PostBuildEvent>
+  </PropertyGroup>
+</Project>

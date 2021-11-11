@@ -1,0 +1,100 @@
+﻿@using System.Web.Optimization
+@model BMSA.App.ViewModels.AccountViewModels.RegisterViewModel
+@{
+    ViewBag.Title = "Register";
+}
+
+
+@using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    <div class="row">
+        <div class="col-md-offset-2 col-md-8">
+            <div class="panel panel-info">
+                <div class="panel-heading">Register Form</div>
+                <div class="panel-body">
+                    @Html.AntiForgeryToken()
+
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.FullName, new { @class = "col-md-3 control-label" })
+                        <div class="col-md-9">
+                            @Html.TextBoxFor(m => m.FullName, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(c => c.FullName, null, new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.UserName, new { @class = "col-md-3 control-label" })
+                        <div class="col-md-9">
+                            @Html.TextBoxFor(m => m.UserName, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(c => c.UserName, null, new { @class = "text-danger" })
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Password, new { @class = "col-md-3 control-label" })
+                        <div class="col-md-9">
+                            @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(c => c.Password, null, new { @class = "text-danger" })
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-3 control-label" })
+                        <div class="col-md-9">
+                            @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(c => c.ConfirmPassword, null, new { @class = "text-danger" })
+
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Email, new { @class = "col-md-3 control-label" })
+                        <div class="col-md-9">
+                            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(c => c.Email, null, new { @class = "text-danger" })
+
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.PhoneNumber, new { @class = "col-md-3 control-label" })
+                        <div class="col-md-9">
+                            @Html.TextBoxFor(m => m.PhoneNumber, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(c => c.PhoneNumber, null, new { @class = "text-danger" })
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Address, new { @class = "col-md-3 control-label" })
+                        <div class="col-md-9">
+                            @Html.TextBoxFor(m => m.Address, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(c => c.Address, null, new { @class = "text-danger" })
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.ApplicationRoleId,"User Role *", new { @class = "col-md-3 control-label" })
+                        <div class="col-md-9">
+                            @Html.DropDownList("ApplicationRoleId", (IEnumerable<SelectListItem>)ViewData["ApplicationRoleId"], "", new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-offset-3 col-md-9">
+                            <input type="submit" class="btn btn-primary" value="Register" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-offset-3 col-md-9">
+                            <label>@ViewBag.Message</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+   
+}
+
+@section ViewSpecificJavascript {
+    @Scripts.Render("~/bundles/jqueryval")
+}

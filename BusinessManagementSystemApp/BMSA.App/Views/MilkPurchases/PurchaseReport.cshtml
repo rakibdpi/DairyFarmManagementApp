@@ -1,0 +1,160 @@
+﻿@model BusinessManagementSystemApp.Core.ViewModels.ReportViewModels.PurchaseReportViewModel
+@{
+    ViewBag.Title = "PurchaseReport";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="row">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        @using (Html.BeginForm())
+        {
+            <div class="panel panel-info">
+                <div class="panel-heading with-border">Purchase Report</div>
+                <div class="panel-body">
+                    <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
+                        <div class="form-group form-horizontal">
+                            <div class="form-group">
+                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                                    <label class="control-label"></label>
+                                </div>
+                                <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10" style="width: 60%;">
+                                    <label class="radio-inline">
+                                        <input type="radio" name="ReportType" value="Monthly" checked> Monthly
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="ReportType" value="Daily"> Daily
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group form-horizontal">
+                            <div class="form-group">
+                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                                    <label for="Year" class="control-label">Year<span style="color: red">*</span></label>
+                                </div>
+                                <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10" style="width: 60%;">
+                                    <select class="form-control" id="Year" name="Year" style="font-size: 16px;">
+                                        <option value="">Select</option>
+                                        <option value="2021">2021</option>
+                                        <option value="2020">2020</option>
+                                        <option value="2019">2019</option>
+                                        <option value="2018">2018</option>
+                                        <option value="2017">2017</option>
+                                    </select>
+                                    @Html.ValidationMessageFor(model => model.Year, "", new { @class = "text-danger", @id = "YearVal" })
+                                </div>
+                            </div>
+                            <div class="form-group" id="month-div">
+                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                                    <label for="Month" class="control-label">Month<span style="color: red">*</span></label>
+                                </div>
+                                <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10" style="width: 60%;">
+                                    <select class="form-control" id="Month" name="Month" style="font-size: 16px;">
+                                        <option value="">Select</option>
+                                        <option value="1">January</option>
+                                        <option value="2">February</option>
+                                        <option value="3">March</option>
+                                        <option value="4">April</option>
+                                        <option value="5">May</option>
+                                        <option value="6">June</option>
+                                        <option value="7">July</option>
+                                        <option value="8">August</option>
+                                        <option value="9">September</option>
+                                        <option value="10">October</option>
+                                        <option value="11">November</option>
+                                        <option value="December">December</option>
+                                    </select>
+                                    @Html.ValidationMessageFor(model => model.Month, "", new { @class = "text-danger", @id = "MonthVal" })
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-horizontal" id="date-div">
+                            <div class="form-group">
+                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                                    <label for="Date" class="control-label">Date<span style="color: red">*</span></label>
+                                </div>
+                                <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10" style="width: 60%;">
+                                    <input type="number" name="Date" id="Date" style="width: 100%; line-height: 28px;" />
+                                    @Html.ValidationMessageFor(model => model.Date, "", new { @class = "text-danger", @id = "DateVal" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group form-horizontal">
+                            <div class="form-group">
+                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                                    <label class="control-label">Supplier</label>
+                                </div>
+                                <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10" style="width: 60%;">
+                                    @Html.DropDownListFor(c => c.SupplierId, null, "", htmlAttributes: new { @class = "form-control show-tick" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2"></div>
+                            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10" style="padding-left: 0">
+                                <div class="form-group col-lg-3 col-md-3 col-sm-3 col-xs-3" style="padding-left: 4px">
+                                    <button type="submit" class="btn btn-primary btn-block" id="btnPreview"><i class="glyphicon glyphicon-eye-open"> PREVIEW</i></button>
+                                </div>
+                                <div class="form-group col-lg-3 col-md-3 col-sm-3 col-xs-3" style="padding-left: 0">
+                                    <a class="btn btn-primary btn-block" id="btnClear"> <i class="glyphicon glyphicon-refresh"> CLEAR</i> </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group form-horizontal">
+                            <div class="form-group">
+                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+
+                                </div>
+                                <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10" style="width: 60%;">
+                                    <label style="color: red">@ViewBag.MessageLabel</label>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+@section ViewSpecificJavascript
+{
+    <script>
+        $(document).ready(function() {
+            $("#date-div").hide();
+            loadSupplier();
+        });
+
+        $('input').on('ifChecked',function(event) {
+                var type = $("input[name='ReportType']:checked").val();
+
+                if (type === "Daily") {
+                    $("#date-div").show();
+                } else if (type === "Monthly") {
+                    $("#date-div").hide();
+                }
+        });
+
+        function loadSupplier() {
+            $("#SupplierId").select2();
+            $.get("/api/MilkSuppliers", function (data) {
+                var $el = $("#SupplierId");
+                $el.empty(); // remove old options
+                $el.append($("<option></option>")
+                    .attr("value", '').text(''));
+                $.each(data, function (value, key) {
+                    $el.append($('<option>', {
+                        value: key.id,
+                        text: key.name
+                    }));
+                });
+            });
+        }
+
+    </script>
+}
+

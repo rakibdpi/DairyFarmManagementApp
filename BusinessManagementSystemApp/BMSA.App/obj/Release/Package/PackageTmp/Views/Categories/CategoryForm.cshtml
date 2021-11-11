@@ -1,0 +1,43 @@
+﻿@model BusinessManagementSystemApp.Core.ViewModels.CategoryViewModels
+@{
+    ViewBag.Title = "CategoryForm";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="row">
+    <div class="col-md-offset-1 col-md-10 col-sm-offset-1 col-sm-10 col-xs-12">
+        <div class="panel panel-info">
+            <div class="panel-heading">Category Setup Form</div>
+            <div class="panel-body">
+                @Html.Partial("PartialViews/_CategoryPartial")
+
+            </div>
+        </div>
+
+
+        <div class="box box-info">
+            <div class="box-header"><h5 class="box-title">History</h5></div>
+            <div class="box-body">
+                <table id="categoryHistory" class="table table-bordered table-hover display">
+                    <thead>
+                        <tr>
+                            <th>Code</th>
+                            <th>Name</th>
+                            <th>Status</th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+@section ViewSpecificJavascript
+{
+    <script src="~/Scripts/Category/Category.js"></script>
+}

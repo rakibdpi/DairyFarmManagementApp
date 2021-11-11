@@ -1,0 +1,98 @@
+﻿@model BusinessManagementSystemApp.Core.ViewModels.MilkProductionViewModels.ProductionViewModel
+@{
+    ViewBag.Title = "Production Form";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10 col-xs-12">
+        <div class="box box-info">
+            <div class="box-header with-border"><h4 class="box-title">Milk Production Form</h4></div>
+            <div class="box-body">
+                <div class="col-md-8 col-sm-8 col-xs-8">
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.CowSetupId, "Cow * ", htmlAttributes: new { @class = "control-label" })
+                            @Html.DropDownListFor(model => model.CowSetupId, null, "", htmlAttributes: new { @class = "form-control show-tick" })
+                            @Html.ValidationMessageFor(model => model.CowSetupId, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Year, "Year * ", htmlAttributes: new { @class = "control-label" })
+                            <select class="form-control" id="Year">
+                                <option value="">Select</option>
+                                <option value="2021">2021</option>
+                                <option value="2020">2020</option>
+                                <option value="2019">2019</option>
+                            </select>
+                            @Html.ValidationMessageFor(model => model.Year, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.ProductionMonth, "Month *", htmlAttributes: new { @class = "control-label" })
+                            <select class="form-control" id="ProductionMonth">
+                                <option value="">Select</option>
+                                <option value="January">January</option>
+                                <option value="February">February</option>
+                                <option value="March">March</option>
+                                <option value="April">April</option>
+                                <option value="May">May</option>
+                                <option value="June">June</option>
+                                <option value="July">July</option>
+                                <option value="August">August</option>
+                                <option value="September">September</option>
+                                <option value="October">October</option>
+                                <option value="November">November</option>
+                                <option value="December">December</option>
+                            </select>
+                        </div>
+
+                        <br />
+                        <div class="form-group form-horizontal">
+                            @Html.HiddenFor(c => c.Id)
+                            <input id="btnLoad" type="button" value="Load Detials" class="btn btn-primary" />
+                            <input id="btnSubmit" type="button" value="Submit" class="btn btn-primary" />
+                            <input id="btnCancel" type="button" value="Clear" class="btn btn-primary" />
+                            @*  <input id="btnPrevious" type="button" value="Previous" class="btn btn-primary" />*@
+                            @* <input id="btnNext" type="button" value="Next" class="btn btn-primary" />*@
+                        </div>
+
+                        @*<div class="form-group">
+                                <label class="control-label" style="color: @ViewBag.Color">@ViewBag.Message</label>
+                            </div>*@
+                    }
+
+                </div>
+                <div class="col-md-4 col-sm-4 col-xs-4">
+                    @* <a class="btn btn-info btn-sm pull-right" href="@Url.Action("AircraftList", "Aircrafts")"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back To List</a>*@
+                </div>
+                @* *********************************************************************** *@
+
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <table id="productionTable" class="table table-bordered table-hover display" style="width: 100%; margin-left: 2%">
+                            <thead>
+                                <tr>
+                                    <th readonly>Id</th>
+                                    <th readonly>Customer</th>
+                                    <th>Day</th>
+                                    <th>সকাল</th>
+                                    <th>দুপুর</th>
+                                    <th>রাত</th>
+                                    <th>অন্যান্য সময়</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section ViewSpecificJavascript
+{
+    <script src="~/Scripts/MilkManagement/ProductionScript/productionForm.js"></script>
+}
+
