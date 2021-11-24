@@ -7,6 +7,7 @@ using BusinessManagementSystemApp.Core.Repositories.Ghee;
 using BusinessManagementSystemApp.Core.Repositories.MilkManagement;
 using BusinessManagementSystemApp.Core.Repositories.MilkPurchase;
 using BusinessManagementSystemApp.Core.Repositories.MilkSellsInterfaces;
+using BusinessManagementSystemApp.Core.Repositories.MuriSell;
 using BusinessManagementSystemApp.Core.Repositories.OilSell;
 using BusinessManagementSystemApp.Core.Repositories.PaymentInterfaces;
 using BusinessManagementSystemApp.Core.Repositories.ProductionInterfaces;
@@ -20,6 +21,7 @@ using BusinessManagementSystemApp.Persistense.Repositories.Ghee;
 using BusinessManagementSystemApp.Persistense.Repositories.MilkManagement;
 using BusinessManagementSystemApp.Persistense.Repositories.MilkPurchaseRepositories;
 using BusinessManagementSystemApp.Persistense.Repositories.MilkSellsRepositories;
+using BusinessManagementSystemApp.Persistense.Repositories.MuriSell;
 using BusinessManagementSystemApp.Persistense.Repositories.OilSell;
 using BusinessManagementSystemApp.Persistense.Repositories.PaymentsRepositories;
 using BusinessManagementSystemApp.Persistense.Repositories.ProductionRepositories;
@@ -67,7 +69,7 @@ namespace BusinessManagementSystemApp.Persistense
         public IOilSellRepository OilSell { get; }
         public ITransactionRepository Transaction { get; }
         public IGheeSalesRepository GheeSale { get; }
-
+        public IMuriSellRepository MuriSale { get; }
 
 
         public UnitOfWork(DbContext context)
@@ -106,6 +108,7 @@ namespace BusinessManagementSystemApp.Persistense
             OilSell = new OilSellRepository(_context);
             Transaction = new TransactionRepository(_context);
             GheeSale = new GheeSalesRepository(_context);
+            MuriSale = new MuriSaleRepository(_context);
         }
 
 

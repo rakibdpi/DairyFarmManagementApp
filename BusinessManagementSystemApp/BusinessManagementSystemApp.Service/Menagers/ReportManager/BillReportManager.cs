@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -112,13 +112,13 @@ namespace BusinessManagementSystemApp.Service.Menagers.ReportManager
         }
         public IEnumerable<BilReportMaster> GetMaster(int clientId, string month)
         {
-            decimal priceHalfKg = 48;
-            decimal priceSevenHalf = 71;
-            decimal priceOneKg = 94;
+            decimal priceHalfKg = 43;
+            decimal priceSevenHalf = 63;
+            decimal priceOneKg = 85;
 
-            decimal priceOneKgOil = 230;
-            decimal priceTwoKgOil = 450;
-            decimal priceFiveKgOil = 1120;
+            decimal priceOneKgOil = 125;
+            decimal priceTwoKgOil = 250;
+            decimal priceFiveKgOil = 1250;
 
 
             var info = _billRepository.GetMasterInfo(clientId, month).ToList();
@@ -201,7 +201,7 @@ namespace BusinessManagementSystemApp.Service.Menagers.ReportManager
             
             foreach (var master in info)
             {
-                master.Customer = "জনাব/জনাবা. " + master.Customer;
+                master.Customer = master.Customer;
                 master.PriceHalfKg = priceHalfKg;
                 master.PriceSevenHalfGm = priceSevenHalf;
                 master.PriceOneKg = priceOneKg;

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
@@ -14,9 +14,11 @@ using BusinessManagementSystemApp.Core.Models.SetupModules;
 using BusinessManagementSystemApp.Core.ReportModels.ViewModels;
 using BusinessManagementSystemApp.Core.ViewModels.GheeSale;
 using BusinessManagementSystemApp.Core.ViewModels.MilkMamagement;
+using BusinessManagementSystemApp.Core.ViewModels.MuriSell;
 using BusinessManagementSystemApp.Service.Menagers.Ghee;
 using BusinessManagementSystemApp.Service.Menagers.MilkManagement;
 using BusinessManagementSystemApp.Service.Menagers.MilkManagement.SetupModules;
+using BusinessManagementSystemApp.Service.Menagers.Muri;
 using BusinessManagementSystemApp.Service.Menagers.OilSell;
 using BusinessManagementSystemApp.Service.Menagers.ReportManager;
 using Microsoft.Reporting.WebForms;
@@ -31,6 +33,7 @@ namespace BMSA.App.Controllers
         private readonly ReportManager _reportManager;
         private readonly GheeSaleMenager _gheeSaleMenager;
         private readonly OilSellManager _oilSellManager;
+        private readonly MuriSaleManager _muriSaleManager;
 
         public ReportsController()
         {
@@ -40,6 +43,7 @@ namespace BMSA.App.Controllers
             _reportManager = new ReportManager();
             _gheeSaleMenager = new GheeSaleMenager();
             _oilSellManager = new OilSellManager();
+            _muriSaleManager = new MuriSaleManager();
         }
         // GET: Reports
         public ActionResult BillReportForm()
@@ -175,6 +179,46 @@ namespace BMSA.App.Controllers
                                 CreateDate = DateTime.Now
                             };
                             var save = _oilSellManager.Add(vm, "Admin");
+                        }
+                    }
+                }
+
+                //Muri Sell
+
+                var muriSalecheck = _muriSaleManager.GetSale(year, model.MonthId, model.ClientId);
+
+                if (model.MuriHalfKg != null || model.MuriOneKg != null )
+                {
+                    if (muriSalecheck != null)
+                    {
+                        var vm = new MuriSellVm()
+                        {
+                            Id = muriSalecheck.Id,
+                            AreaId = model.AreaId,
+                            ClientInfoId = model.ClientId,
+                            SalesMonth = model.MonthId,
+                            Year = year,
+                            HalfKg = model.MuriHalfKg,
+                            OneKg = model.MuriOneKg
+                        };
+
+                        var update = _muriSaleManager.Update(muriSalecheck.Id, vm);
+                    }
+                    else
+                    {
+                        if (model.MuriHalfKg != null || model.MuriOneKg != null)
+                        {
+                            var vm = new MuriSellVm()
+                            {
+                                AreaId = model.AreaId,
+                                ClientInfoId = model.ClientId,
+                                SalesMonth = model.MonthId,
+                                Year = year,
+                                HalfKg = model.MuriHalfKg,
+                                OneKg = model.MuriOneKg
+                            };
+
+                            var save = _muriSaleManager.Add(vm, "Admin");
                         }
                     }
                 }

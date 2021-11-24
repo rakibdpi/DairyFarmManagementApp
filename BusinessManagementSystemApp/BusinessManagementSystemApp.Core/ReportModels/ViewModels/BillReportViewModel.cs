@@ -20,5 +20,7 @@
         public int? OilTwoKg { get; set; }
         public int? OilFiveKg { get; set; }
 
+        public int? MuriHalfKg { get; set; }
+        public int? MuriOneKg { get; set; }
     }
 }

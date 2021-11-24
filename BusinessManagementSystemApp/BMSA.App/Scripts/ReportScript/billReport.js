@@ -3,12 +3,6 @@
     $("#ClientId").select2();
 
     refreshTable();
-
-
-
-
-
-
 });
 
 $(document.body).on("click", "#btnGenerate", function () {
@@ -34,6 +28,11 @@ $(document.body).on("click", "#btnGenerate", function () {
     model.oilTwoKg = $("#OilTwoKg").val();
     model.oilFiveKg = $("#OilFiveKg").val();
 
+    model.muriHalfKg = $("#MuriHalfKg").val();
+    model.muriOneKg = $("#MuriOneKg").val(); 
+
+
+
 
     if (model.dueAmount > 0) {
         $.ajax({
@@ -55,6 +54,9 @@ $(document.body).on("click", "#btnGenerate", function () {
                                 $("#OilOneKg").val("");
                                 $("#OilTwoKg").val("");
                                 $("#OilFiveKg").val("");
+                                $("#MuriHalfKg").val("");
+                                $("#MuriOneKg").val(""); 
+
 
                                 $("#DueAmount").val("");
 

@@ -5,7 +5,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
 -->
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <_PublishTargetUrl>C:\Users\Rakib\Documents\Publish</_PublishTargetUrl>
+    <_PublishTargetUrl>E:\Publish</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/amd64/Microsoft.VC90.CRT/Microsoft.VC90.CRT.manifest">
@@ -42,25 +42,25 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/18/2018 13:00:14</publishTime>
     </File>
     <File Include="bin/BMSA.App.dll">
-      <publishTime>10/31/2021 20:37:46</publishTime>
+      <publishTime>11/24/2021 23:03:09</publishTime>
     </File>
     <File Include="bin/BMSA.App.dll.config">
-      <publishTime>08/09/2021 14:21:49</publishTime>
+      <publishTime>11/12/2021 22:55:58</publishTime>
     </File>
     <File Include="bin/BusinessManagementSystemApp.Core.dll">
-      <publishTime>10/27/2021 16:44:29</publishTime>
+      <publishTime>11/23/2021 22:50:41</publishTime>
     </File>
     <File Include="bin/BusinessManagementSystemApp.Core.dll.config">
       <publishTime>08/09/2021 14:21:50</publishTime>
     </File>
     <File Include="bin/BusinessManagementSystemApp.Persistense.dll">
-      <publishTime>10/27/2021 16:44:30</publishTime>
+      <publishTime>11/24/2021 23:02:57</publishTime>
     </File>
     <File Include="bin/BusinessManagementSystemApp.Persistense.dll.config">
       <publishTime>08/09/2021 14:21:50</publishTime>
     </File>
     <File Include="bin/BusinessManagementSystemApp.Service.dll">
-      <publishTime>10/31/2021 20:26:30</publishTime>
+      <publishTime>11/24/2021 23:02:59</publishTime>
     </File>
     <File Include="bin/BusinessManagementSystemApp.Service.dll.config">
       <publishTime>08/09/2021 14:21:50</publishTime>
@@ -2076,7 +2076,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/09/2021 14:21:49</publishTime>
     </File>
     <File Include="Scripts/MilkManagement/ClientInfos/clientInfoForm.js">
-      <publishTime>08/09/2021 14:21:49</publishTime>
+      <publishTime>11/16/2021 21:38:41</publishTime>
     </File>
     <File Include="Scripts/MilkManagement/ClientInfos/clientReport.js">
       <publishTime>08/09/2021 14:21:49</publishTime>
@@ -2133,7 +2133,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/09/2021 14:21:49</publishTime>
     </File>
     <File Include="Scripts/ReportScript/billReport.js">
-      <publishTime>09/27/2021 00:02:09</publishTime>
+      <publishTime>11/23/2021 23:09:50</publishTime>
     </File>
     <File Include="Scripts/select2.js">
       <publishTime>08/09/2021 14:21:49</publishTime>
@@ -2259,7 +2259,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/09/2021 14:21:49</publishTime>
     </File>
     <File Include="Views/Home/Index.cshtml">
-      <publishTime>08/09/2021 14:21:49</publishTime>
+      <publishTime>11/16/2021 21:45:31</publishTime>
     </File>
     <File Include="Views/Manage/AddPhoneNumber.cshtml">
       <publishTime>08/09/2021 14:21:49</publishTime>
@@ -2325,7 +2325,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/09/2021 14:21:49</publishTime>
     </File>
     <File Include="Views/Reports/BillReportForm.cshtml">
-      <publishTime>09/17/2021 02:40:38</publishTime>
+      <publishTime>11/23/2021 23:00:14</publishTime>
     </File>
     <File Include="Views/Reports/SalesReport.cshtml">
       <publishTime>08/09/2021 14:21:49</publishTime>
@@ -2364,7 +2364,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/09/2021 14:21:49</publishTime>
     </File>
     <File Include="Views/Shared/_Header.cshtml">
-      <publishTime>08/09/2021 14:21:49</publishTime>
+      <publishTime>11/23/2021 22:07:06</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
       <publishTime>08/09/2021 14:21:49</publishTime>
@@ -2379,7 +2379,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/09/2021 14:21:49</publishTime>
     </File>
     <File Include="Views/Shared/_Sidebar.cshtml">
-      <publishTime>08/09/2021 14:21:49</publishTime>
+      <publishTime>11/24/2021 23:02:13</publishTime>
     </File>
     <File Include="Views/SmsSends/MessageForm.cshtml">
       <publishTime>08/09/2021 14:21:49</publishTime>
@@ -2397,7 +2397,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/09/2021 14:21:49</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>08/31/2021 12:18:53</publishTime>
+      <publishTime>11/16/2021 21:48:17</publishTime>
     </File>
   </ItemGroup>
 </Project>

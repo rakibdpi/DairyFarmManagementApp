@@ -9,7 +9,7 @@ namespace BMSA.App.Controllers
         [HttpGet]
         public ActionResult Index()
         {
-            ViewBag.ProductId = new SelectList(new List<Product>(), "Id", "Code");
+           // ViewBag.ProductId = new SelectList(new List<Product>(), "Id", "Code");
 
             return View();
         }

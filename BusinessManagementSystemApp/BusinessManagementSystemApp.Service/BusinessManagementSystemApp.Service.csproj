@@ -83,6 +83,7 @@
     <Compile Include="Menagers\MilkManagement\ReportManager.cs" />
     <Compile Include="Menagers\MilkManagement\RowSaleManager.cs" />
     <Compile Include="Menagers\MilkManagement\SetupModules\AreaManager.cs" />
+    <Compile Include="Menagers\Muri\MuriSaleManager.cs" />
     <Compile Include="Menagers\OilSell\OilSellManager.cs" />
     <Compile Include="Menagers\PaymentService.cs" />
     <Compile Include="Menagers\ProductMenager.cs" />
