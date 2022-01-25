@@ -51,7 +51,7 @@ namespace BMSA.App.Controllers.Api
                         Name = c.ClientInfo.Name,
                         PhoneNo = c.ClientInfo.PhoneNo,
                         Address = c.ClientInfo.Address,
-                        BillAmount = _billReport.BillForView(c.ClientInfoId, month)
+                        BillAmount = _billReport.BillForView(c.ClientInfoId, month,year)
                     }).Distinct().ToList();
                 var clientList = _clientMenager.GetAllActive().Where(c => c.AreaId == areaId && c.Id == clientId.GetValueOrDefault()).Select(c => new ClientListForPayment
                 {
@@ -62,7 +62,7 @@ namespace BMSA.App.Controllers.Api
                     Name = c.Name,
                     PhoneNo = c.PhoneNo,
                     Address = c.Address,
-                    BillAmount = _billReport.BillForView(c.Id, month)
+                    BillAmount = _billReport.BillForView(c.Id, month,year)
                 }).Distinct().ToList();
 
                 foreach (var client in clientList)
@@ -86,7 +86,7 @@ namespace BMSA.App.Controllers.Api
                     Name = c.ClientInfo.Name,
                     PhoneNo = c.ClientInfo.PhoneNo,
                     Address = c.ClientInfo.Address,
-                    BillAmount = _billReport.BillForView(c.ClientInfoId, month)
+                    BillAmount = _billReport.BillForView(c.ClientInfoId, month,year)
                 }).Distinct().ToList();
             var allClients = _clientMenager.GetAllActive().Where(c => c.AreaId == areaId).Select(c => new ClientListForPayment
             {
@@ -97,7 +97,7 @@ namespace BMSA.App.Controllers.Api
                 Name = c.Name,
                 PhoneNo = c.PhoneNo,
                 Address = c.Address,
-                BillAmount = _billReport.BillForView(c.Id, month)
+                BillAmount = _billReport.BillForView(c.Id, month,year)
             }).Distinct().ToList();
 
             foreach (var client in allClients)
@@ -131,7 +131,7 @@ namespace BMSA.App.Controllers.Api
                     Name = c.ClientInfo.Name,
                     PhoneNo = c.ClientInfo.PhoneNo,
                     Address = c.ClientInfo.Address,
-                    BillAmount = _billReport.BillForView(c.ClientInfoId, dto.Month)
+                    BillAmount = _billReport.BillForView(c.ClientInfoId, dto.Month,dto.Year)
                 }).Distinct().ToList();
             var allClients = _clientMenager.GetAllActive().Where(c => c.AreaId == dto.AreaId).Select(c => new ClientListForPayment
             {
@@ -142,7 +142,7 @@ namespace BMSA.App.Controllers.Api
                 Name = c.Name,
                 PhoneNo = c.PhoneNo,
                 Address = c.Address,
-                BillAmount = _billReport.BillForView(c.Id, dto.Month)
+                BillAmount = _billReport.BillForView(c.Id, dto.Month,dto.Year)
             }).Distinct().ToList();
 
             foreach (var client in allClients)
@@ -150,7 +150,7 @@ namespace BMSA.App.Controllers.Api
                 var any = paidList.Any(c => c.Id == client.Id);
                 if (!any && client.BillAmount > 0 && !string.IsNullOrEmpty(client.PhoneNo) )
                 {
-                    var message = "জনাব,আপনার আগস্ট মাসের দুধের বিল " + client.BillAmount + " টাকা । পরিশোধের শেষ তারিখ আগামীকাল 10/09/2021 ইং। নর্থ বেঙ্গল ডেইরী ফার্ম,যোগাযোগঃ 01748095352";
+                    var message = "সম্মানিত গ্রাহক,আপনার ডিসেম্বর মাসের দুধের বিল " + client.BillAmount + " টাকা ১০ তারিখের মধ্যে আশা করেছিলাম।দ্রুত পরিশোধ করার জন্য অনুরোধ করা যাচ্ছে।ঠাকুরগাঁও ডেইরী ফার্ম, ফোনঃ 01760123281";
 
                    // var message = "আপনার ফেব্রুয়ারী মাসের দুধের বিল " + client.BillAmount + " টাকা দ্রুত পরিশোধ করার জন্য অনুরোধ রইল-নর্থ বেঙ্গল ডেইরী ফার্ম,যোগাযোগঃ 01748095352";
 
@@ -185,7 +185,7 @@ namespace BMSA.App.Controllers.Api
                     Name = c.ClientInfo.Name,
                     PhoneNo = c.ClientInfo.PhoneNo,
                     Address = c.ClientInfo.Address,
-                    BillAmount = _billReport.BillForView(c.ClientInfoId, month)
+                    BillAmount = _billReport.BillForView(c.ClientInfoId, month,year)
                 }).Distinct().ToList();
 
             var allClients = _clientMenager.GetAllActive().Where(c => c.AreaId == areaId).Select(c => new ClientListForPayment
@@ -197,7 +197,7 @@ namespace BMSA.App.Controllers.Api
                 Name = c.Name,
                 PhoneNo = c.PhoneNo,
                 Address = c.Address,
-                BillAmount = _billReport.BillForView(c.Id, month)
+                BillAmount = _billReport.BillForView(c.Id, month,year)
             }).Distinct().ToList();
 
             foreach (var client in allClients)
@@ -248,7 +248,7 @@ namespace BMSA.App.Controllers.Api
                 if (status <= 0) return Ok(status);
                 foreach (var payment in list)
                 {
-                    var message = "আপনার অক্টোবর মাসের ঘি,সরিষার তেল ও দুধের বিল " + payment.BillAmount + " টাকা বুঝে পেলাম ,ধন্যবাদ । নর্থ বেঙ্গল ডেইরী ফার্ম, ফোনঃ 01748095352";
+                    var message = "আপনার ডিসেম্বর মাসের দুধের বিল " + payment.BillAmount + " টাকা বুঝে পেলাম ,ধন্যবাদ । ঠাকুরগাঁও ডেইরী ফার্ম, ফোনঃ 01760123281";
                     var contactNo = _clientMenager.Get(payment.ClientInfoId).PhoneNo;
                     if (contactNo.Length == 11)
                     {

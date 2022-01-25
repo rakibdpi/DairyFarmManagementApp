@@ -253,6 +253,10 @@
     <Compile Include="Migrations\202111231633214_createMuriTable.Designer.cs">
       <DependentUpon>202111231633214_createMuriTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202201121405518_AddYearInPacketSale.cs" />
+    <Compile Include="Migrations\202201121405518_AddYearInPacketSale.Designer.cs">
+      <DependentUpon>202201121405518_AddYearInPacketSale.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReportRepositories\BillReportRepository.cs" />
@@ -442,6 +446,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202111231633214_createMuriTable.resx">
       <DependentUpon>202111231633214_createMuriTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202201121405518_AddYearInPacketSale.resx">
+      <DependentUpon>202201121405518_AddYearInPacketSale.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

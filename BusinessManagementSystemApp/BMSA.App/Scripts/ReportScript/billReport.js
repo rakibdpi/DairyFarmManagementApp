@@ -9,14 +9,17 @@ $(document.body).on("click", "#btnGenerate", function () {
     var model = {};
     var clientId = $("#ClientId").val();
     var month = $("#MonthId").val();
+    var year = $("#Year").val();
 
-    if (clientId === "" || month === "") {
+
+    if (clientId === "" || month === "" || year == "") {
         toastr.warning("Pleas Select Area and Client");
         return;
     }
     model.ClientId = parseInt(clientId);
     model.areaId = $("#AreaId").val();
     model.MonthId = month;
+    model.year = year;
     model.amountType = $("#AmountType").val();
     model.dueAmount = $("#DueAmount").val();
 
@@ -427,6 +430,8 @@ $(document.body).on("click", "#btnSubmit", function () {
             packetSaleDtos: []
         };
         var areaId = $("#AreaId").val();
+        var year = $("#Year").val();
+
 
         var dtlTable = $('#salesTable').DataTable();
         var details = dtlTable.rows().data();
@@ -447,6 +452,7 @@ $(document.body).on("click", "#btnSubmit", function () {
                 areaId: areaId,
                 dayNumber: day,
                 salesMonth: month,
+                year: year,
                 clientInfoId: client,
                 halfKg: parseFloat(half),
                 sevenAndHalfGm: parseFloat(sevenFifty),

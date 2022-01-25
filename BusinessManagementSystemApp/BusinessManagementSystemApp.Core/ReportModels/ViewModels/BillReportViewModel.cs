@@ -7,6 +7,7 @@
         public string MonthId { get; set; }
         public string AmountType { get; set; }  
         public decimal DueAmount { get; set; }
+        public string Year { get; set; }
 
         public int? OneFourthKg { get; set; }
         public int? HalfKg { get; set; }

@@ -147,6 +147,7 @@
     <Compile Include="ReportModels\CowSellBillSms.cs" />
     <Compile Include="ReportModels\MilkDetailsSummary.cs" />
     <Compile Include="ReportModels\OilReport\OilBillReport.cs" />
+    <Compile Include="ReportModels\RunningPaymentInfo.cs" />
     <Compile Include="ReportModels\SalesDetailsReport.cs" />
     <Compile Include="ReportModels\ViewModels\BillReportViewModel.cs" />
     <Compile Include="ReportModels\ViewModels\BillSummaryVm.cs" />
@@ -208,6 +209,7 @@
     <Compile Include="ViewModels\ProductViewModel.cs" />
     <Compile Include="ViewModels\PurchaseViewModel.cs" />
     <Compile Include="ViewModels\PurchaseViewModelForDataPass.cs" />
+    <Compile Include="ViewModels\ReportViewModels\PaymentReportViewModel.cs" />
     <Compile Include="ViewModels\ReportViewModels\ProductionReportViewModel.cs" />
     <Compile Include="ViewModels\ReportViewModels\PurchaseReportViewModel.cs" />
     <Compile Include="ViewModels\SalesDetailsViewModel.cs" />

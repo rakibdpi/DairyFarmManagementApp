@@ -223,3 +223,4 @@ C:\Users\Rakib\Documents\Lict\TDH\ThakurgaonDairyProject\BusinessManagementSyste
 C:\Users\Rakib\Documents\Lict\TDH\ThakurgaonDairyProject\BusinessManagementSystemApp\BusinessManagementSystemApp.Persistense\obj\Release\BusinessManagementSystemApp.Persistense.dll
 C:\Users\Rakib\Documents\Lict\TDH\ThakurgaonDairyProject\BusinessManagementSystemApp\BusinessManagementSystemApp.Persistense\obj\Release\BusinessManagementSystemApp.Persistense.pdb
 C:\Users\Rakib\Documents\Lict\TDH\ThakurgaonDairyProject\BusinessManagementSystemApp\BusinessManagementSystemApp.Persistense\obj\Release\BusinessManagementSystemApp.Persistense.Migrations.createMuriTable.resources
+C:\Users\Rakib\Documents\Lict\TDH\ThakurgaonDairyProject\BusinessManagementSystemApp\BusinessManagementSystemApp.Persistense\obj\Release\BusinessManagementSystemApp.Persistense.Migrations.AddYearInPacketSale.resources

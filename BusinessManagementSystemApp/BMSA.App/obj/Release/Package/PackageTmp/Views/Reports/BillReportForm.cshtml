@@ -27,6 +27,19 @@
                                 @Html.ValidationMessageFor(model => model.ClientId, "", new { @class = "text-danger" })
                             </div>
                             <div class="form-group">
+                                @Html.LabelFor(model => model.Year, "Year", htmlAttributes: new { @class = "control-label" })
+                                <select class="form-control" id="Year" name="Year" style="font-size: 16px;">
+                                    <option value="">Select</option>
+                                    <option value="2022">2022</option>
+                                    <option value="2021">2021</option>
+                                    <option value="2020">2020</option>
+                                    <option value="2019">2019</option>
+                                    <option value="2018">2018</option>
+                                    <option value="2017">2017</option>
+                                </select>
+                                @Html.ValidationMessageFor(model => model.Year, "", new { @class = "text-danger", @id = "YearVal" })
+                            </div>
+                            <div class="form-group">
                                 @Html.LabelFor(model => model.MonthId, "Month", htmlAttributes: new { @class = "control-label" })
                                 <select class="form-control" id="MonthId">
                                     <option value="">Select</option>
@@ -59,7 +72,7 @@
                             </div>
 
                             <div class="row">
-                                <div class="col-md-3 col-sm-3"> 
+                                <div class="col-md-3 col-sm-3">
                                     <div class="form-group">
                                         <input type="button" value="Generate" id="btnGenerate" class="btn btn-primary btn-block pull-left" style="margin-bottom: 357px;" />
 

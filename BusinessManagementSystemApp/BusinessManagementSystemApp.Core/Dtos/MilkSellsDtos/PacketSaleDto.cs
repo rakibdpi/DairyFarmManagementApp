@@ -9,6 +9,7 @@ namespace BusinessManagementSystemApp.Core.Dtos.MilkSellsDtos
         public long Id { get; set; }
         public int AreaId { get; set; }
         public Area Area { get; set; }
+        public string Year { get; set; }
         public int ClientInfoId { get; set; }
         public ClientInfo ClientInfo { get; set; }
         public string SalesMonth { get; set; }

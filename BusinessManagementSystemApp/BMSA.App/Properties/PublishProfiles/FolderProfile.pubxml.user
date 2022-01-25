@@ -5,7 +5,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
 -->
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <_PublishTargetUrl>E:\Publish</_PublishTargetUrl>
+    <_PublishTargetUrl>C:\Users\Rakib\Documents\Publish</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/amd64/Microsoft.VC90.CRT/Microsoft.VC90.CRT.manifest">
@@ -42,25 +42,25 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/18/2018 13:00:14</publishTime>
     </File>
     <File Include="bin/BMSA.App.dll">
-      <publishTime>11/24/2021 23:03:09</publishTime>
+      <publishTime>01/13/2022 19:56:32</publishTime>
     </File>
     <File Include="bin/BMSA.App.dll.config">
       <publishTime>11/12/2021 22:55:58</publishTime>
     </File>
     <File Include="bin/BusinessManagementSystemApp.Core.dll">
-      <publishTime>11/23/2021 22:50:41</publishTime>
+      <publishTime>01/12/2022 21:27:09</publishTime>
     </File>
     <File Include="bin/BusinessManagementSystemApp.Core.dll.config">
       <publishTime>08/09/2021 14:21:50</publishTime>
     </File>
     <File Include="bin/BusinessManagementSystemApp.Persistense.dll">
-      <publishTime>11/24/2021 23:02:57</publishTime>
+      <publishTime>01/12/2022 21:27:10</publishTime>
     </File>
     <File Include="bin/BusinessManagementSystemApp.Persistense.dll.config">
       <publishTime>08/09/2021 14:21:50</publishTime>
     </File>
     <File Include="bin/BusinessManagementSystemApp.Service.dll">
-      <publishTime>11/24/2021 23:02:59</publishTime>
+      <publishTime>01/13/2022 19:56:27</publishTime>
     </File>
     <File Include="bin/BusinessManagementSystemApp.Service.dll.config">
       <publishTime>08/09/2021 14:21:50</publishTime>
@@ -1572,10 +1572,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/09/2021 14:21:50</publishTime>
     </File>
     <File Include="Reports/MilkDataSet.xsc">
-      <publishTime>08/09/2021 14:21:49</publishTime>
+      <publishTime>12/25/2021 19:05:31</publishTime>
     </File>
     <File Include="Reports/MilkDataSet.xss">
-      <publishTime>08/09/2021 14:21:49</publishTime>
+      <publishTime>12/25/2021 19:05:31</publishTime>
     </File>
     <File Include="Scripts/bootbox.js">
       <publishTime>08/09/2021 14:21:49</publishTime>
@@ -2100,7 +2100,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/09/2021 14:21:49</publishTime>
     </File>
     <File Include="Scripts/MilkManagement/Payments/payment_script.js">
-      <publishTime>08/09/2021 14:21:49</publishTime>
+      <publishTime>12/25/2021 19:42:15</publishTime>
     </File>
     <File Include="Scripts/MilkManagement/ProductionScript/productionEditForm.js">
       <publishTime>08/09/2021 14:21:49</publishTime>
@@ -2115,7 +2115,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/09/2021 14:21:49</publishTime>
     </File>
     <File Include="Scripts/MilkManagement/SaleScripts/salesModifyForm.js">
-      <publishTime>08/09/2021 14:21:49</publishTime>
+      <publishTime>01/12/2022 21:17:41</publishTime>
     </File>
     <File Include="Scripts/modernizr-2.6.2.js">
       <publishTime>08/09/2021 14:21:49</publishTime>
@@ -2133,7 +2133,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/09/2021 14:21:49</publishTime>
     </File>
     <File Include="Scripts/ReportScript/billReport.js">
-      <publishTime>11/23/2021 23:09:50</publishTime>
+      <publishTime>01/12/2022 21:10:36</publishTime>
     </File>
     <File Include="Scripts/select2.js">
       <publishTime>08/09/2021 14:21:49</publishTime>
@@ -2301,7 +2301,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/09/2021 14:21:49</publishTime>
     </File>
     <File Include="Views/Payments/Index.cshtml">
-      <publishTime>08/09/2021 14:21:49</publishTime>
+      <publishTime>12/25/2021 19:33:48</publishTime>
     </File>
     <File Include="Views/Productions/ProductionEdit.cshtml">
       <publishTime>08/09/2021 14:21:49</publishTime>
@@ -2325,10 +2325,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/09/2021 14:21:49</publishTime>
     </File>
     <File Include="Views/Reports/BillReportForm.cshtml">
-      <publishTime>11/23/2021 23:00:14</publishTime>
+      <publishTime>01/12/2022 21:24:02</publishTime>
     </File>
     <File Include="Views/Reports/SalesReport.cshtml">
-      <publishTime>08/09/2021 14:21:49</publishTime>
+      <publishTime>01/13/2022 19:54:42</publishTime>
     </File>
     <File Include="Views/Reports/SalesReportDetail.cshtml">
       <publishTime>08/09/2021 14:21:49</publishTime>
@@ -2349,7 +2349,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/09/2021 14:21:49</publishTime>
     </File>
     <File Include="Views/Sales/SalesModifyForm.cshtml">
-      <publishTime>08/09/2021 14:21:49</publishTime>
+      <publishTime>01/12/2022 21:12:19</publishTime>
     </File>
     <File Include="Views/Shared/Error.cshtml">
       <publishTime>08/09/2021 14:21:49</publishTime>
@@ -2379,7 +2379,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/09/2021 14:21:49</publishTime>
     </File>
     <File Include="Views/Shared/_Sidebar.cshtml">
-      <publishTime>11/24/2021 23:02:13</publishTime>
+      <publishTime>01/09/2022 21:17:20</publishTime>
     </File>
     <File Include="Views/SmsSends/MessageForm.cshtml">
       <publishTime>08/09/2021 14:21:49</publishTime>

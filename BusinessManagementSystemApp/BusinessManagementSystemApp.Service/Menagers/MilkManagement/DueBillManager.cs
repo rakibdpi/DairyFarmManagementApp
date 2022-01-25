@@ -26,7 +26,7 @@ namespace BusinessManagementSystemApp.Service.Menagers.MilkManagement
         {
             var date = DateTime.Now;
             var entity = new DueBills() {
-                Year = date.Year.ToString(),
+                Year = vm.Year,
                 ClientInfoId = vm.ClientId,
                 MonthId = vm.MonthId,
                 AmountType = vm.AmountType,
@@ -36,12 +36,21 @@ namespace BusinessManagementSystemApp.Service.Menagers.MilkManagement
             return _unitOfWork.Complete();
         }
 
-        public DueBills GetDueBill(int clientId, string month)
+        public DueBills GetDueBill(int clientId, string month,string year)
         {
             var result = _unitOfWork.DueBill.GetAll().LastOrDefault(c => c.ClientInfoId == clientId && c.MonthId.ToLower().Trim() == month.ToLower().Trim() &&
-                c.Year == DateTime.Now.Year.ToString());
+                c.Year == year);
             return result;
-        } 
+        }
+
+        public IEnumerable<DueBills> GetDueBillData(int areaId, string month, string year)
+        {
+            var result = _unitOfWork.DueBill.GetAll().Where(c => c.ClientInfo.AreaId == areaId && c.MonthId.ToLower().Trim() == month.ToLower().Trim() &&
+                c.Year == year);
+            return result;
+        }
+
+
 
         public decimal Get(int clientId, string monthId)
         {

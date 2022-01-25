@@ -385,10 +385,51 @@ $(document.body).on("click", "#btnCancel", function () {
 
 
 
-$(document.body).on("click", "#btnSummary", function () {
+$(document.body).on("click", "#btnRunningDueBill", function () {
     var dto = {};
+     dto.areaId = $("#AreaId").val();
      dto.year = $("#Year").val();
      dto.month = $("#Month").val();
+
+
+    if (dto.areaId > 0 && dto.year.length > 0 && dto.month.length > 0) {
+        $.ajax({
+            url: "/Payments/BillPaymentReport",
+            data: dto,
+            type: "POST",
+            success: function (data) {
+                if (data != "" && data != null) {
+                    setTimeout(function () {
+                        $("#pdf").attr("href", data);
+                        var reportBox = $("#pdf").fancybox({
+                            'frameWidth': 85,
+                            'frameHeight': 495,
+                            'overlayShow': true,
+                            'hideOnContentClick': false,
+                            'type': 'iframe',
+                            helpers: {
+                                // prevents closing when clicking OUTSIDE fancybox
+                                overlay: { closeClick: false }
+                            }
+                        }).trigger('click');
+                    }, 1000);
+                }
+            }
+        });
+
+
+    } else {
+        toastr.warning("Select Area Area,Year AND Month", "Warning!!!");
+    }
+
+});
+
+
+
+$(document.body).on("click", "#btnSummary", function () {
+    var dto = {};
+    dto.year = $("#Year").val();
+    dto.month = $("#Month").val();
 
 
     if (dto.year.length > 0 && dto.month.length > 0) {
@@ -422,3 +463,6 @@ $(document.body).on("click", "#btnSummary", function () {
     }
 
 });
+
+
+
