@@ -53,23 +53,6 @@ namespace BMSA.App.Controllers.Api
 
         }
 
-        [Route("api/ClientInfos/GenerateClientCode")]
-        [HttpGet]
-        public IHttpActionResult GenerateClientCode(int areaId)
-        {
-            try
-            {
-                var info = _clientInfoMenager.GenerateClientCode(areaId);
-                return Ok(info);
-            }
-            catch (Exception e)
-            {
-                return BadRequest(e.Message);
-            }
-        }
-
-
-
 
         [Route("api/ClientInfos/GetAllActive")]
         [HttpGet]

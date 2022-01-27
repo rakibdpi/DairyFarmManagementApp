@@ -50,7 +50,7 @@ namespace BMSA.App.Controllers.Api
         {
             try
             {
-                var infos = _saleManager.GetMilkReport(year, month);
+                var infos = _saleManager.GetMilkReport(Convert.ToInt16(year), month);
                 return Ok(infos);
             }
             catch (Exception e)
@@ -79,11 +79,11 @@ namespace BMSA.App.Controllers.Api
 
         [HttpGet]   
         [Route("api/PacketSales/GetByClientIdAndMonth")]
-        public IHttpActionResult GetByClientIdAndMonth(int clientId, string month,string year)
+        public IHttpActionResult GetByClientIdAndMonth(int clientId, string month)
         {
             try
             {
-                var infos = _saleManager.GetAll().Where(c => c.ClientInfoId == clientId && c.SalesMonth.ToLower()== month.ToLower() && c.Year == year).ToList();
+                var infos = _saleManager.GetAll().Where(c => c.ClientInfoId == clientId && c.SalesMonth.ToLower()== month.ToLower()).ToList();
                 return Ok(infos);
             }
             catch (Exception e)

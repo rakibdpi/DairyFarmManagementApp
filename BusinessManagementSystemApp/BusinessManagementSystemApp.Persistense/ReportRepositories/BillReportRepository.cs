@@ -17,39 +17,39 @@ namespace BusinessManagementSystemApp.Persistense.ReportRepositories
             _context= new BusinessManagementSystemDbContext();
         }
 
-        public IEnumerable<BilReportMaster> GetMasterInfo(int clientId, string month,string year)
+        public IEnumerable<BilReportMaster> GetMasterInfo(int clientId, string month)
         {
-            var query = "SP_GetBillReportMaster @clientId, @month, @year";
+            var query = "SP_GetBillReportMaster @clientId, @month";
             var data = _context.Database.SqlQuery<BilReportMaster>(query,
                 new SqlParameter("clientId", clientId),
-                new SqlParameter("month", month),
-                 new SqlParameter("year", year)
+                new SqlParameter("month", month)
             );
 
             return data.ToList();
         }
-        public IEnumerable<BillReport> GetBillInfo(int clientId, string month,string year)
+        public IEnumerable<BillReport> GetBillInfo(int clientId, string month)
         {
-            var query = "SP_GetBillReport @clientId, @month, @year";
+            var query = "SP_GetBillReport @clientId, @month";
             var data = _context.Database.SqlQuery<BillReport>(query,
                 new SqlParameter("clientId", clientId),
-                new SqlParameter("month", month),
-                new SqlParameter("year", year)
+                new SqlParameter("month", month)
             );
             
             return data.ToList();
         }
 
-        public IEnumerable<OilBillReport> GetOilBillInfo(int clientId, string month,string year)
+        public IEnumerable<OilBillReport> GetOilBillInfo(int clientId, string month)
         {
-            var query = "SP_GetOilBillReport @clientId, @month, @year";
+            var query = "SP_GetOilBillReport @clientId, @month";
             var data = _context.Database.SqlQuery<OilBillReport>(query,
                 new SqlParameter("clientId", clientId),
-                new SqlParameter("month", month),
-                new SqlParameter("year", year)
+                new SqlParameter("month", month)
             );
 
             return data.ToList();
         }
+
+
+
     }
 }

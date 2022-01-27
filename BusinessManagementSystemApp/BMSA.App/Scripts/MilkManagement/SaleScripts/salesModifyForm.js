@@ -151,7 +151,7 @@ function initialTable(clientId) {
     });
 }
 
-function editTable(clientId, month,year) {
+function editTable(clientId, month) {
     $("#salesTable").DataTable().destroy();
     $('#salesTable').DataTable({
         retrieve: false,
@@ -173,7 +173,7 @@ function editTable(clientId, month,year) {
         ],
         ajax: {
             url: "/api/PacketSales/GetByClientIdAndMonth",
-            data: { clientId: clientId, month: month, year: year },
+            data: { clientId: clientId, month: month},
             dataSrc: ""
         },
         columns: [
@@ -258,17 +258,15 @@ $(document.body).on("click", "#btnLoad", function () {
     refreshTable();
     var client = $("#ClientInfoId").val();
     var month = $("#SalesMonth").val();
-    var year = $("#Year").val();
-
-    if (client.length < 1 || month.length < 1 || year < 1) {
+    if (client.length < 1 || month.length < 1) {
         toastr.warning("Please fill up all required fields", "Warning!!");
         return;
     }
-    $.get("/api/PacketSales/GetByClientIdAndMonth", { clientId: client, month: month, year: year },
+    $.get("/api/PacketSales/GetByClientIdAndMonth", { clientId: client, month: month},
         function (data) {
             console.log(data.length);
             if (data.length > 0) {
-                editTable(client, month, year);
+                editTable(client, month);
             } else {
                 toastr.warning("Not sale yet for this customer in this date", "Warning!!");
                 $('#salesTable').DataTable().clear().draw();
@@ -281,8 +279,6 @@ $(document.body).on("click", "#btnSubmit", function () {
     var type = $("#ClientType").val();
     var id = $("#Id").val();
     var month = $("#SalesMonth").val();
-    var year = $("#Year").val();
-
     if (parseInt(type) === 1) {
         var dto = {
             packetSaleDtos: []
@@ -314,7 +310,6 @@ $(document.body).on("click", "#btnSubmit", function () {
                 areaId: areaId,
                 dayNumber: day,
                 salesMonth: month,
-                year: year,
                 clientInfoId: client,
                 halfKg: parseFloat(half),
                 sevenAndHalfGm: parseFloat(sevenFifty),

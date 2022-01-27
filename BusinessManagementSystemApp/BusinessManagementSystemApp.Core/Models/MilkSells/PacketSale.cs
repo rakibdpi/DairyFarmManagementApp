@@ -8,7 +8,6 @@ namespace BusinessManagementSystemApp.Core.Models.MilkSells
     {
         public long Id { get; set; }
         public int AreaId { get; set; }
-        public string Year { get; set; }
         public Area Area { get; set; }
         public int ClientInfoId { get; set; }
         public ClientInfo ClientInfo { get; set; }

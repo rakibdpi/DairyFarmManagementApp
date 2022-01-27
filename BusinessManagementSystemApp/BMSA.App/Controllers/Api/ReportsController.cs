@@ -19,7 +19,7 @@ namespace BMSA.App.Controllers.Api
 
         [HttpGet]
         [Route("api/Reports/SalesReportByDeliveryMenWise")]
-        public IHttpActionResult SalesReportByDeliveryMenWise(string month, string year, int? deliveryManId, int? areaId)
+        public IHttpActionResult SalesReportByDeliveryMenWise(string month, int year, int? deliveryManId, int? areaId)
         {
             try
             {

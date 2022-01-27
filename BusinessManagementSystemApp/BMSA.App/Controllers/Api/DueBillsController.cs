@@ -24,23 +24,6 @@ namespace BMSA.App.Controllers.Api
             return new string[] { "value1", "value2" };
         }
 
-        public IHttpActionResult GetDueData(int areaId,string year,string month)
-        {
-            try
-            {
-                var data = _manager.GetDueBillData(areaId, month, year).ToList();
-                if (data == null)
-                    return NotFound();
-
-                return Ok(data);
-            }
-            catch (Exception e)
-            {
-                return BadRequest(e.Message);
-            }
-        }
-
-
         // GET: api/DueBills/5
         public string Get(int id)
         {

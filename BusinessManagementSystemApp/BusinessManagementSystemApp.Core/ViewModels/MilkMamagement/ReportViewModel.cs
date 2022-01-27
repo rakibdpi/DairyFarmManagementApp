@@ -10,7 +10,7 @@ namespace BusinessManagementSystemApp.Core.ViewModels.MilkMamagement
     public class SalesReportViewModel
     {
         public string Month { get; set; }
-        public string Year { get; set; }
+        public int Year { get; set; }
         public int DeliveryManId { get; set; }
         public int AreaId { get; set; } 
     }

@@ -14,7 +14,6 @@ using BusinessManagementSystemApp.Core.Models.MilkMamagement.SetupModules;
 using BusinessManagementSystemApp.Core.Models.MilkProduction;
 using BusinessManagementSystemApp.Core.Models.MilkPurchases;
 using BusinessManagementSystemApp.Core.Models.MilkSells;
-using BusinessManagementSystemApp.Core.Models.Muri;
 using BusinessManagementSystemApp.Core.Models.OilSell;
 using BusinessManagementSystemApp.Core.Models.Payments;
 using BusinessManagementSystemApp.Core.Models.PurchaseModules;
@@ -74,8 +73,5 @@ namespace BusinessManagementSystemApp.Persistense.DatabaseConfigurations
         public DbSet<Transaction> Transactions { get; set; }
 
         public DbSet<GheeSale> GheeSales { get; set; }
-
-        public DbSet<MuriSale> MuriSales { get; set; }
-
     }
 }

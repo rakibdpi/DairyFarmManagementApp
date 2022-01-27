@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
@@ -14,11 +14,9 @@ using BusinessManagementSystemApp.Core.Models.SetupModules;
 using BusinessManagementSystemApp.Core.ReportModels.ViewModels;
 using BusinessManagementSystemApp.Core.ViewModels.GheeSale;
 using BusinessManagementSystemApp.Core.ViewModels.MilkMamagement;
-using BusinessManagementSystemApp.Core.ViewModels.MuriSell;
 using BusinessManagementSystemApp.Service.Menagers.Ghee;
 using BusinessManagementSystemApp.Service.Menagers.MilkManagement;
 using BusinessManagementSystemApp.Service.Menagers.MilkManagement.SetupModules;
-using BusinessManagementSystemApp.Service.Menagers.Muri;
 using BusinessManagementSystemApp.Service.Menagers.OilSell;
 using BusinessManagementSystemApp.Service.Menagers.ReportManager;
 using Microsoft.Reporting.WebForms;
@@ -33,7 +31,6 @@ namespace BMSA.App.Controllers
         private readonly ReportManager _reportManager;
         private readonly GheeSaleMenager _gheeSaleMenager;
         private readonly OilSellManager _oilSellManager;
-        private readonly MuriSaleManager _muriSaleManager;
 
         public ReportsController()
         {
@@ -43,7 +40,6 @@ namespace BMSA.App.Controllers
             _reportManager = new ReportManager();
             _gheeSaleMenager = new GheeSaleMenager();
             _oilSellManager = new OilSellManager();
-            _muriSaleManager = new MuriSaleManager();
         }
         // GET: Reports
         public ActionResult BillReportForm()
@@ -58,6 +54,7 @@ namespace BMSA.App.Controllers
         {
             try
             {
+                var year = "2021";
 
                 CultureInfo cInfo = new CultureInfo("en-IN");
                 ReportViewer viewer = new ReportViewer();
@@ -67,7 +64,7 @@ namespace BMSA.App.Controllers
 
                 //Ghee Sell
 
-                var salecheck = _gheeSaleMenager.GetSale(model.Year, model.MonthId, model.ClientId);
+                var salecheck = _gheeSaleMenager.GetSale(year, model.MonthId, model.ClientId);
 
                 if (model.OneFourthKg != null || model.HalfKg != null || model.OneKg != null)
                 {
@@ -79,7 +76,7 @@ namespace BMSA.App.Controllers
                             AreaId = model.AreaId,
                             ClientInfoId = model.ClientId,
                             SalesMonth = model.MonthId,
-                            Year = model.Year,
+                            Year = year,
                             OneFourthKg = model.OneFourthKg,
                             HalfKg = model.HalfKg,
                             OneKg = model.OneKg
@@ -96,7 +93,7 @@ namespace BMSA.App.Controllers
                                 AreaId = model.AreaId,
                                 ClientInfoId = model.ClientId,
                                 SalesMonth = model.MonthId,
-                                Year = model.Year,
+                                Year = year,
                                 OneFourthKg = model.OneFourthKg,
                                 HalfKg = model.HalfKg,
                                 OneKg = model.OneKg
@@ -110,7 +107,7 @@ namespace BMSA.App.Controllers
 
                 //Oil Sell
 
-                var oilSellCheck = _oilSellManager.OilSaleExist(model.Year, model.MonthId, model.ClientId);
+                var oilSellCheck = _oilSellManager.OilSaleExist(year, model.MonthId, model.ClientId);
 
                 if (model.OilOneKg != null || model.OilTwoKg != null || model.OilFiveKg != null)
                 {
@@ -135,7 +132,7 @@ namespace BMSA.App.Controllers
                             AreaId = model.AreaId,
                             ClientInfoId = model.ClientId,
                             SalesMonth = model.MonthId,
-                            Year = model.Year,
+                            Year = year,
                             DayNumber = 0,
                             OneKg = model.OilOneKg,
                             TwoKg = model.OilTwoKg,
@@ -168,7 +165,7 @@ namespace BMSA.App.Controllers
                                 AreaId = model.AreaId,
                                 ClientInfoId = model.ClientId,
                                 SalesMonth = model.MonthId,
-                                Year = model.Year,
+                                Year = year,
                                 DayNumber = 0,
                                 OneKg = model.OilOneKg,
                                 TwoKg = model.OilTwoKg,
@@ -182,51 +179,11 @@ namespace BMSA.App.Controllers
                     }
                 }
 
-                //Muri Sell
-
-                var muriSalecheck = _muriSaleManager.GetSale(model.Year, model.MonthId, model.ClientId);
-
-                if (model.MuriHalfKg != null || model.MuriOneKg != null )
-                {
-                    if (muriSalecheck != null)
-                    {
-                        var vm = new MuriSellVm()
-                        {
-                            Id = muriSalecheck.Id,
-                            AreaId = model.AreaId,
-                            ClientInfoId = model.ClientId,
-                            SalesMonth = model.MonthId,
-                            Year = model.Year,
-                            HalfKg = model.MuriHalfKg,
-                            OneKg = model.MuriOneKg
-                        };
-
-                        var update = _muriSaleManager.Update(muriSalecheck.Id, vm);
-                    }
-                    else
-                    {
-                        if (model.MuriHalfKg != null || model.MuriOneKg != null)
-                        {
-                            var vm = new MuriSellVm()
-                            {
-                                AreaId = model.AreaId,
-                                ClientInfoId = model.ClientId,
-                                SalesMonth = model.MonthId,
-                                Year = model.Year,
-                                HalfKg = model.MuriHalfKg,
-                                OneKg = model.MuriOneKg
-                            };
-
-                            var save = _muriSaleManager.Add(vm, "Admin");
-                        }
-                    }
-                }
-
-                var reports = _billManager.GetMaster(model.ClientId, model.MonthId,model.Year);
+                var reports = _billManager.GetMaster(model.ClientId, model.MonthId);
                 var masterDataSource = new ReportDataSource("BillMasterDataSet", reports);
                 viewer.LocalReport.DataSources.Add(masterDataSource);
 
-                var details = _billManager.GetBillInfo(model.ClientId, model.MonthId,model.Year);
+                var details = _billManager.GetBillInfo(model.ClientId, model.MonthId);
                 var detailDataSource = new ReportDataSource("BillDetailsDataSet", details);
                 viewer.LocalReport.DataSources.Add(detailDataSource);
 

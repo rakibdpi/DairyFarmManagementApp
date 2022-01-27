@@ -12,7 +12,6 @@ using BusinessManagementSystemApp.Core.Repositories.PurchaseModules;
 using BusinessManagementSystemApp.Core.Repositories.SalesModules;
 using BusinessManagementSystemApp.Core.Repositories.SetupModules;
 using BusinessManagementSystemApp.Core.Repositories.SupplierModules;
-using BusinessManagementSystemApp.Core.Repositories.MuriSell;
 
 namespace BusinessManagementSystemApp.Core
 {
@@ -57,8 +56,6 @@ namespace BusinessManagementSystemApp.Core
         ITransactionRepository Transaction { get; }
 
         IGheeSalesRepository GheeSale { get; }
-
-        IMuriSellRepository MuriSale { get; }
 
 
         int Complete();

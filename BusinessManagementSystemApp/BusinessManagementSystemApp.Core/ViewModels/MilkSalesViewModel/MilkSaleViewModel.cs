@@ -11,7 +11,6 @@ namespace BusinessManagementSystemApp.Core.ViewModels.MilkSalesViewModel
         public string ClientType { get; set; }  
         public int AreaId { get; set; }
         public Area Area { get; set; }
-        public string Year { get; set; }
         public int ClientInfoId { get; set; }
         public ClientInfo ClientInfo { get; set; }
         public string SalesMonth { get; set; }        

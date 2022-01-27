@@ -66,9 +66,9 @@ namespace BMSA.App.Controllers
             var info = new PurchaseReportDataSet();
             var details = _reportManager.GetPurchaseReport(model);
             info.Models = details;
-            info.CompanyName = "Thakugaon Dairy Farm";
-            info.CompanyAddress = "HOUSE#89,BLOCK-B,WARD#53,PORAN KALIYA,NOYANAGOR,TURAG,DHAKA-1230";
-            info.MobileNo = "01760123281";
+            info.CompanyName = "North Bengal Dairy Firm";
+            info.CompanyAddress = "Khristan Builder er Pashe, Solmaid, Vatara, Dhaka 1212 ";
+            info.MobileNo = "01748-095352, 01978-095352";
             info.MonthParameter = model.Month;
             info.YearParameter = model.Year;
             info.DayParameter = model.Date.ToString();
@@ -81,9 +81,9 @@ namespace BMSA.App.Controllers
             var info = new PurchaseReportDataSet();
             var details = _reportManager.GetPurchaseReportForMonth(model);
             info.Models = details;
-            info.CompanyName = "Thakugaon Dairy Farm";
-            info.CompanyAddress = "HOUSE#89,BLOCK-B,WARD#53,PORAN KALIYA,NOYANAGOR,TURAG,DHAKA-1230";
-            info.MobileNo = "01760123281";
+            info.CompanyName = "North Bengal Dairy Firm";
+            info.CompanyAddress = "Khristan Builder er Pashe, Solmaid, Vatara, Dhaka 1212 ";
+            info.MobileNo = "01748-095352, 01978-095352";
             info.MonthParameter = model.Month;
             info.YearParameter = model.Year;
             info.DayParameter = model.Date.ToString();

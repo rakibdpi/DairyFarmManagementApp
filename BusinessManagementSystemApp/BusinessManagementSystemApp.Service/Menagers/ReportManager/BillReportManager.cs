@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -12,7 +12,6 @@ namespace BusinessManagementSystemApp.Service.Menagers.ReportManager
 {
     public class BillReportManager
     {
-        private readonly PaymentService _paymentService;
         private readonly BillReportRepository _billRepository;
         private readonly DueBillManager _manager;
         private readonly GheeSaleMenager _gheeSaleMenager;
@@ -21,23 +20,22 @@ namespace BusinessManagementSystemApp.Service.Menagers.ReportManager
             _billRepository= new BillReportRepository();
             _manager = new DueBillManager();
             _gheeSaleMenager = new GheeSaleMenager();
-            _paymentService = new PaymentService();
         }
 
-        public decimal BillForView(int clientId, string month,string year)
+        public decimal BillForView(int clientId, string month)
         {
-            decimal priceHalfKg = 43;
-            decimal priceSevenHalf = 65;
-            decimal priceOneKg = 85;
+            decimal priceHalfKg = 48;
+            decimal priceSevenHalf = 71;
+            decimal priceOneKg = 94;
 
-            decimal priceOneKgOil = 125;
-            decimal priceTwoKgOil = 250;
-            decimal priceFiveKgOil = 1250;
+            decimal priceOneKgOil = 230;
+            decimal priceTwoKgOil = 450;
+            decimal priceFiveKgOil = 1120;
 
 
-            var info = _billRepository.GetMasterInfo(clientId, month,year).ToList();
-            var dueBill = _manager.GetDueBill(clientId, month,year);
-            var bill = _billRepository.GetBillInfo(clientId, month,year);
+            var info = _billRepository.GetMasterInfo(clientId, month).ToList();
+            var dueBill = _manager.GetDueBill(clientId, month);
+            var bill = _billRepository.GetBillInfo(clientId, month);
             var billReports = bill as BillReport[] ?? bill.ToArray();
             var totalNumberOfHalfKg = billReports.Sum(c => c.HalfKg);
             var totalNumberOfSevenHalf = billReports.Sum(c => c.SevenAndHalfGm);
@@ -49,7 +47,7 @@ namespace BusinessManagementSystemApp.Service.Menagers.ReportManager
             var totalMilkAmount = totalAmountOfHalfKg + totalAmountOfOneKg + totalAmountOfSevenHalf;
 
 
-            var oilBil = _billRepository.GetOilBillInfo(clientId, month,year);
+            var oilBil = _billRepository.GetOilBillInfo(clientId, month);
             var oilBillReports = oilBil as OilBillReport[] ?? oilBil.ToArray();
             var totalNumberOfOneKgOil = oilBillReports.Sum(c => c.OneKg);
             var totalNumberOfTwoKgOil = oilBillReports.Sum(c => c.TwoKg);
@@ -112,20 +110,20 @@ namespace BusinessManagementSystemApp.Service.Menagers.ReportManager
 
             return subTotal;
         }
-        public IEnumerable<BilReportMaster> GetMaster(int clientId, string month,string year)
+        public IEnumerable<BilReportMaster> GetMaster(int clientId, string month)
         {
-            decimal priceHalfKg = 43;
-            decimal priceSevenHalf = 65;
-            decimal priceOneKg = 85;
+            decimal priceHalfKg = 48;
+            decimal priceSevenHalf = 71;
+            decimal priceOneKg = 94;
 
-            decimal priceOneKgOil = 125;
-            decimal priceTwoKgOil = 250;
-            decimal priceFiveKgOil = 1250;
+            decimal priceOneKgOil = 230;
+            decimal priceTwoKgOil = 450;
+            decimal priceFiveKgOil = 1120;
 
 
-            var info = _billRepository.GetMasterInfo(clientId, month,year).ToList();
-            var dueBill = _manager.GetDueBill(clientId, month ,year);
-            var bill = _billRepository.GetBillInfo(clientId, month,year);
+            var info = _billRepository.GetMasterInfo(clientId, month).ToList();
+            var dueBill = _manager.GetDueBill(clientId, month);
+            var bill = _billRepository.GetBillInfo(clientId, month);
             var billReports = bill as BillReport[] ?? bill.ToArray();
             var totalNumberOfHalfKg = billReports.Sum(c => c.HalfKg);
             var totalNumberOfSevenHalf = billReports.Sum(c => c.SevenAndHalfGm);
@@ -137,7 +135,7 @@ namespace BusinessManagementSystemApp.Service.Menagers.ReportManager
             var totalMilkAmount = totalAmountOfHalfKg + totalAmountOfOneKg + totalAmountOfSevenHalf;
 
 
-            var oilBil = _billRepository.GetOilBillInfo(clientId, month,year);
+            var oilBil = _billRepository.GetOilBillInfo(clientId, month);
             var oilBillReports = oilBil as OilBillReport[] ?? oilBil.ToArray();
             var totalNumberOfOneKgOil = oilBillReports.Sum(c => c.OneKg);
             var totalNumberOfTwoKgOil = oilBillReports.Sum(c => c.TwoKg);
@@ -203,7 +201,7 @@ namespace BusinessManagementSystemApp.Service.Menagers.ReportManager
             
             foreach (var master in info)
             {
-                master.Customer = master.Customer;
+                master.Customer = "জনাব/জনাবা. " + master.Customer;
                 master.PriceHalfKg = priceHalfKg;
                 master.PriceSevenHalfGm = priceSevenHalf;
                 master.PriceOneKg = priceOneKg;
@@ -239,37 +237,10 @@ namespace BusinessManagementSystemApp.Service.Menagers.ReportManager
             return info;
         }
 
-        public IEnumerable<BillReport> GetBillInfo(int clientId, string month, string year)
+        public IEnumerable<BillReport> GetBillInfo(int clientId, string month)
         {
-            var info = _billRepository.GetBillInfo(clientId, month,year).ToList();
+            var info = _billRepository.GetBillInfo(clientId, month).ToList();
             return info;
         }
-
-        public IEnumerable<RunningPaymentInfo> RunningPaymentDue(int areaId, string year, string month)
-        {
-            var paymentInfo = _paymentService.GetAll().Where(c => c.AreaId == areaId && c.Year == year && c.Month == month).ToList();
-
-            var infos = new List<RunningPaymentInfo>();
-
-            foreach (var item in paymentInfo)
-            {
-                var bill = BillForView(item.ClientInfoId, month,year);
-
-                var payinfo = new RunningPaymentInfo()
-                {
-                    Area = item.Area.Name,
-                    Name = item.ClientInfo.Name,
-                    PhoneNo = item.ClientInfo.PhoneNo,
-                    BillAmount = bill,
-                    PayAmount = item.BillAmount,
-                    DueAmount = bill - item.BillAmount
-                };
-                infos.Add(payinfo);
-            }
-
-            return infos;
-        }
-
-
     }
 }

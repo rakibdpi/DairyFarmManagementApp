@@ -34,7 +34,6 @@ namespace BMSA.App.Controllers.Api
         {
             try
             {
-                var year = "2021";
                 counter++;
                 int count = 0;
                 var clients = _clientInfoManager.GetAll().Where(c => c.AreaId== dto.AreaId && c.IsActive).ToList();
@@ -42,7 +41,7 @@ namespace BMSA.App.Controllers.Api
                 {
                     if (!string.IsNullOrEmpty(dto.Message) && !string.IsNullOrEmpty(client.PhoneNo))
                     {
-                    var billInfo = _billManager.GetMaster(client.Id, "December",year).FirstOrDefault();
+                    var billInfo = _billManager.GetMaster(client.Id, "October").FirstOrDefault();
                         
                         decimal amount=0;
 
@@ -234,8 +233,8 @@ namespace BMSA.App.Controllers.Api
             //String password = "Admin555@#%"; //Your Password
 
 
-            String userid = "01797741425"; //Your Login ID
-            String password = "Shohag1234#"; //Your Password
+            String userid = "01797803454"; //Your Login ID
+            String password = "Rakib1234@"; //Your Password
 
 
 

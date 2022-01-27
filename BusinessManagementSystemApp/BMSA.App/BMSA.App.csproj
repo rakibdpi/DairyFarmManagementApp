@@ -634,7 +634,6 @@
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\dataTransectionForm.js" />
     <Content Include="Scripts\dataTransectionSearchForm.js" />
-    <Content Include="Scripts\DueScripts\dueAndPayment.js" />
     <Content Include="Scripts\i18n\af.js" />
     <Content Include="Scripts\i18n\ar.js" />
     <Content Include="Scripts\i18n\az.js" />
@@ -771,7 +770,6 @@
     <Content Include="Views\OilSell\SellForm.cshtml" />
     <Content Include="Views\OilSell\SellEditForm.cshtml" />
     <Content Include="Views\CowSales\Sale.cshtml" />
-    <Content Include="Views\Payments\DueAndPaymentDelete.cshtml" />
     <None Include="_bin_deployableAssemblies\x86\sqlcese40.dll" />
     <None Include="_bin_deployableAssemblies\x86\sqlceqp40.dll" />
     <None Include="_bin_deployableAssemblies\x86\sqlceme40.dll" />
@@ -1083,7 +1081,6 @@
     <EmbeddedResource Include="Reports\BillReport.rdlc" />
     <EmbeddedResource Include="Reports\ClientInformation.rdlc" />
     <EmbeddedResource Include="Reports\MonthlyBill.rdlc" />
-    <EmbeddedResource Include="Reports\RunningDueReport.rdlc" />
     <EmbeddedResource Include="Reports\SaleReport\SalesInvoice.rdlc" />
     <EmbeddedResource Include="Reports\SummaryReport.rdlc" />
   </ItemGroup>

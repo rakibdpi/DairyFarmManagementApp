@@ -33,7 +33,7 @@ namespace BusinessManagementSystemApp.Service.Menagers
 
         public List<MilkDetailsSummary> GetMilkDetailsSummary(string year, string month)
         {
-            var salesData = _unitOfWork.PacketSale.Find(c => c.SalesMonth == month && c.Year == year).ToList();
+            var salesData = _unitOfWork.PacketSale.Find(c => c.SalesMonth == month).ToList();
 
             //Total Packet Get
             var halfKgPacket = salesData.Sum(c => c.HalfKg);
@@ -47,14 +47,14 @@ namespace BusinessManagementSystemApp.Service.Menagers
 
             //Total Milk Litter
             var totalMilk = halfKgTotal + sevenHalfKgTotal + ongKgTotal;
-            var totalMilkAmount = halfKgPacket * 43 + sevenHalfKgPacket * 65 + oneKgPacket * 85;
+            var totalMilkAmount = halfKgPacket * 46 + sevenHalfKgPacket * 68 + oneKgPacket * 90;
 
             //Oil Sale
             var oilSell = _unitOfWork.OilSell.Find(c => c.SalesMonth == month && c.Year == year).ToList();
             var oneLitterOil = oilSell.Sum(c => c.OneKg);
             var twoLitter = oilSell.Sum(c => c.TwoKg);
             var fiveLitter = oilSell.Sum(c => c.FiveKg);
-            var totalOilPrice = oneLitterOil * 125 + twoLitter * 250 + fiveLitter * 1250;
+            var totalOilPrice = oneLitterOil * 230 + twoLitter * 450 + fiveLitter * 1120;
 
             //Ghee Sale 
             var gheSale = _unitOfWork.GheeSale.Find(c => c.SalesMonth == month && c.Year == year).ToList();
