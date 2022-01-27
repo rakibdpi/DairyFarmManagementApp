@@ -7,6 +7,7 @@
         public string MonthId { get; set; }
         public string AmountType { get; set; }  
         public decimal DueAmount { get; set; }
+        public string Year { get; set; }
 
         public int? OneFourthKg { get; set; }
         public int? HalfKg { get; set; }
@@ -20,5 +21,7 @@
         public int? OilTwoKg { get; set; }
         public int? OilFiveKg { get; set; }
 
+        public int? MuriHalfKg { get; set; }
+        public int? MuriOneKg { get; set; }
     }
 }

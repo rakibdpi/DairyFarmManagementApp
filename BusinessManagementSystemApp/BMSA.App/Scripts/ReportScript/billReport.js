@@ -3,26 +3,23 @@
     $("#ClientId").select2();
 
     refreshTable();
-
-
-
-
-
-
 });
 
 $(document.body).on("click", "#btnGenerate", function () {
     var model = {};
     var clientId = $("#ClientId").val();
     var month = $("#MonthId").val();
+    var year = $("#Year").val();
 
-    if (clientId === "" || month === "") {
+
+    if (clientId === "" || month === "" || year == "") {
         toastr.warning("Pleas Select Area and Client");
         return;
     }
     model.ClientId = parseInt(clientId);
     model.areaId = $("#AreaId").val();
     model.MonthId = month;
+    model.year = year;
     model.amountType = $("#AmountType").val();
     model.dueAmount = $("#DueAmount").val();
 
@@ -33,6 +30,11 @@ $(document.body).on("click", "#btnGenerate", function () {
     model.oilOneKg = $("#OilOneKg").val();
     model.oilTwoKg = $("#OilTwoKg").val();
     model.oilFiveKg = $("#OilFiveKg").val();
+
+    model.muriHalfKg = $("#MuriHalfKg").val();
+    model.muriOneKg = $("#MuriOneKg").val(); 
+
+
 
 
     if (model.dueAmount > 0) {
@@ -55,6 +57,9 @@ $(document.body).on("click", "#btnGenerate", function () {
                                 $("#OilOneKg").val("");
                                 $("#OilTwoKg").val("");
                                 $("#OilFiveKg").val("");
+                                $("#MuriHalfKg").val("");
+                                $("#MuriOneKg").val(""); 
+
 
                                 $("#DueAmount").val("");
 
@@ -425,6 +430,8 @@ $(document.body).on("click", "#btnSubmit", function () {
             packetSaleDtos: []
         };
         var areaId = $("#AreaId").val();
+        var year = $("#Year").val();
+
 
         var dtlTable = $('#salesTable').DataTable();
         var details = dtlTable.rows().data();
@@ -445,6 +452,7 @@ $(document.body).on("click", "#btnSubmit", function () {
                 areaId: areaId,
                 dayNumber: day,
                 salesMonth: month,
+                year: year,
                 clientInfoId: client,
                 halfKg: parseFloat(half),
                 sevenAndHalfGm: parseFloat(sevenFifty),

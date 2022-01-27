@@ -19,12 +19,12 @@ namespace BusinessManagementSystemApp.Service.Menagers.MilkManagement
             _unitOfWork = new UnitOfWork(new BusinessManagementSystemDbContext());
         }
 
-        public List<SaleReportByDeliveryMenViewModel> SaleReportDeliveryManWise(string month, int year, int? deliveryMan, int? areaId)
+        public List<SaleReportByDeliveryMenViewModel> SaleReportDeliveryManWise(string month, string year, int? deliveryMan, int? areaId)
         {
-            decimal halfKgPrice = 46;
-            decimal sevenHalfPrice = 68;
-            decimal oneKgPrice = 90;
-            var sales = _unitOfWork.PacketSale.Find(c => !c.IsDelete && c.SalesMonth == month && c.CreateDate.Year == year).ToList();
+            decimal halfKgPrice = 43;
+            decimal sevenHalfPrice = 65;
+            decimal oneKgPrice = 85;
+            var sales = _unitOfWork.PacketSale.Find(c => !c.IsDelete && c.SalesMonth == month && c.Year == year).ToList();
             var collections = _unitOfWork.Payment.Find(c => !c.IsDelete && c.Month == month && c.Year == year.ToString()).ToList();
 
             var resultInfos = (from h in sales

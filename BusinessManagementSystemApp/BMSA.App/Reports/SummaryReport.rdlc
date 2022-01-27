@@ -9,7 +9,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>নর্থ বেঙ্গল ডেইরী ফার্ম</Value>
+                <Value>Thakurgaon Dairy Farm</Value>
                 <Style>
                   <FontFamily>kalpurush</FontFamily>
                   <FontSize>24pt</FontSize>
@@ -44,7 +44,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>দুধ বিক্রি ও টাকা গ্রহণের হিসাব</Value>
+                <Value>Sales Summary Report</Value>
                 <Style>
                   <FontFamily>Kalpurush</FontFamily>
                   <FontSize>14pt</FontSize>
@@ -110,10 +110,11 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>সারসংক্ষেপ</Value>
+                              <Value>Summary</Value>
                               <Style>
                                 <FontFamily>kalpurush</FontFamily>
                                 <FontSize>14pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -153,10 +154,11 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>দুধের দাম</Value>
+                              <Value>Milk Price</Value>
                               <Style>
-                                <FontFamily>kalpurush</FontFamily>
+                                <FontFamily>times New Roman</FontFamily>
                                 <FontSize>12pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -190,8 +192,9 @@
                             <TextRun>
                               <Value>=Fields!TotalMilkAmount.Value</Value>
                               <Style>
-                                <FontFamily>SutonnyMJ</FontFamily>
+                                <FontFamily>times New Roman</FontFamily>
                                 <FontSize>12pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -223,10 +226,11 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>টাকা</Value>
+                              <Value>Taka</Value>
                               <Style>
-                                <FontFamily>kalpurush</FontFamily>
+                                <FontFamily>times New Roman</FontFamily>
                                 <FontSize>12pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -263,10 +267,11 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>তেলের দাম</Value>
+                              <Value>Oil Price</Value>
                               <Style>
-                                <FontFamily>kalpurush</FontFamily>
+                                <FontFamily>times New Roman</FontFamily>
                                 <FontSize>12pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -300,8 +305,9 @@
                             <TextRun>
                               <Value>=Fields!TotalOilPrice.Value</Value>
                               <Style>
-                                <FontFamily>SutonnyMJ</FontFamily>
+                                <FontFamily>times New Roman</FontFamily>
                                 <FontSize>12pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -333,10 +339,11 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>টাকা</Value>
+                              <Value>Taka</Value>
                               <Style>
-                                <FontFamily>kalpurush</FontFamily>
+                                <FontFamily>times New Roman</FontFamily>
                                 <FontSize>12pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -373,10 +380,11 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>ঘিয়ের দাম</Value>
+                              <Value>Ghee Price</Value>
                               <Style>
-                                <FontFamily>kalpurush</FontFamily>
+                                <FontFamily>times New Roman</FontFamily>
                                 <FontSize>12pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -410,8 +418,9 @@
                             <TextRun>
                               <Value>=Fields!TotalGhePrice.Value</Value>
                               <Style>
-                                <FontFamily>SutonnyMJ</FontFamily>
+                                <FontFamily>times New Roman</FontFamily>
                                 <FontSize>12pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -443,10 +452,11 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>টাকা</Value>
+                              <Value>Taka</Value>
                               <Style>
-                                <FontFamily>kalpurush</FontFamily>
+                                <FontFamily>times New Roman</FontFamily>
                                 <FontSize>12pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -483,10 +493,11 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>বকেয়া বিল</Value>
+                              <Value>Due Bill</Value>
                               <Style>
-                                <FontFamily>kalpurush</FontFamily>
+                                <FontFamily>times New Roman</FontFamily>
                                 <FontSize>12pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -520,8 +531,9 @@
                             <TextRun>
                               <Value>=Fields!EntryDue.Value</Value>
                               <Style>
-                                <FontFamily>SutonnyMJ</FontFamily>
+                                <FontFamily>times New Roman</FontFamily>
                                 <FontSize>12pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -553,10 +565,11 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>টাকা</Value>
+                              <Value>Taka</Value>
                               <Style>
-                                <FontFamily>kalpurush</FontFamily>
+                                <FontFamily>times New Roman</FontFamily>
                                 <FontSize>12pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -593,10 +606,11 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>মোট বিল </Value>
+                              <Value>Total Bill</Value>
                               <Style>
-                                <FontFamily>kalpurush</FontFamily>
+                                <FontFamily>times New Roman</FontFamily>
                                 <FontSize>12pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -630,8 +644,9 @@
                             <TextRun>
                               <Value>=Fields!TotalAmount.Value</Value>
                               <Style>
-                                <FontFamily>SutonnyMJ</FontFamily>
+                                <FontFamily>times New Roman</FontFamily>
                                 <FontSize>12pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -663,10 +678,11 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>টাকা</Value>
+                              <Value>Taka</Value>
                               <Style>
-                                <FontFamily>kalpurush</FontFamily>
+                                <FontFamily>times New Roman</FontFamily>
                                 <FontSize>12pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -703,10 +719,11 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>রানিং হিসাব</Value>
+                              <Value>Running </Value>
                               <Style>
-                                <FontFamily>kalpurush</FontFamily>
+                                <FontFamily>times New Roman</FontFamily>
                                 <FontSize>12pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -746,10 +763,11 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>মোট টাকা গ্রহন</Value>
+                              <Value>Total Tk Recived</Value>
                               <Style>
-                                <FontFamily>kalpurush</FontFamily>
+                                <FontFamily>times New Roman</FontFamily>
                                 <FontSize>12pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -783,8 +801,9 @@
                             <TextRun>
                               <Value>=Fields!TotalCollection.Value</Value>
                               <Style>
-                                <FontFamily>SutonnyMJ</FontFamily>
+                                <FontFamily>times New Roman</FontFamily>
                                 <FontSize>12pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -816,10 +835,11 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>টাকা</Value>
+                              <Value>Taka</Value>
                               <Style>
-                                <FontFamily>kalpurush</FontFamily>
+                                <FontFamily>times New Roman</FontFamily>
                                 <FontSize>12pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -856,10 +876,11 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>মোট বাকি</Value>
+                              <Value>Total Due</Value>
                               <Style>
-                                <FontFamily>kalpurush</FontFamily>
+                                <FontFamily>times New Roman</FontFamily>
                                 <FontSize>12pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -893,8 +914,9 @@
                             <TextRun>
                               <Value>=Fields!TotalDue.Value</Value>
                               <Style>
-                                <FontFamily>SutonnyMJ</FontFamily>
+                                <FontFamily>times New Roman</FontFamily>
                                 <FontSize>12pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -926,10 +948,11 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>টাকা</Value>
+                              <Value>Taka</Value>
                               <Style>
-                                <FontFamily>kalpurush</FontFamily>
+                                <FontFamily>times New Roman</FontFamily>
                                 <FontSize>12pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -1014,7 +1037,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>প্যাকেট হিসাব</Value>
+                              <Value>Milk Summary</Value>
                               <Style>
                                 <FontFamily>Kalpurush</FontFamily>
                                 <FontSize>14pt</FontSize>
@@ -1057,7 +1080,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>৪৫০ গ্রাম</Value>
+                              <Value>450 gm</Value>
                               <Style>
                                 <FontFamily>Kalpurush</FontFamily>
                               </Style>
@@ -1091,7 +1114,7 @@
                             <TextRun>
                               <Value>=Fields!HalfKgPacket.Value</Value>
                               <Style>
-                                <FontFamily>SutonnyMJ</FontFamily>
+                                <FontFamily>times New Roman</FontFamily>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -1123,7 +1146,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>টি</Value>
+                              <Value>pcs</Value>
                               <Style>
                                 <FontFamily>Kalpurush</FontFamily>
                               </Style>
@@ -1160,7 +1183,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>৬৭৫ গ্রাম</Value>
+                              <Value>675 gm</Value>
                               <Style>
                                 <FontFamily>Kalpurush</FontFamily>
                               </Style>
@@ -1194,7 +1217,7 @@
                             <TextRun>
                               <Value>=Fields!SevenHalfKgPacket.Value</Value>
                               <Style>
-                                <FontFamily>SutonnyMJ</FontFamily>
+                                <FontFamily>times New Roman</FontFamily>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -1226,7 +1249,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>টি</Value>
+                              <Value>pcs</Value>
                               <Style>
                                 <FontFamily>Kalpurush</FontFamily>
                               </Style>
@@ -1263,7 +1286,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>৯০০ গ্রাম</Value>
+                              <Value>900 gm</Value>
                               <Style>
                                 <FontFamily>Kalpurush</FontFamily>
                               </Style>
@@ -1297,7 +1320,7 @@
                             <TextRun>
                               <Value>=Fields!OneKgPacket.Value</Value>
                               <Style>
-                                <FontFamily>SutonnyMJ</FontFamily>
+                                <FontFamily>times New Roman</FontFamily>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -1329,7 +1352,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>টি</Value>
+                              <Value>pcs</Value>
                               <Style>
                                 <FontFamily>Kalpurush</FontFamily>
                               </Style>

@@ -18,7 +18,7 @@
                     <li>@Html.ActionLink("Client Entry", "ClientInfoForm", "ClientInfos")</li>
                     <li>@Html.ActionLink("Active User", "ActiveClientInfo", "ClientInfos")</li>
                     <li>@Html.ActionLink("DeActive User", "DeActiveClientInfo", "ClientInfos")</li>
-                 @*   <li>@Html.ActionLink("Reservation", "ReservationForm", "Reservations")</li>*@
+                    @*   <li>@Html.ActionLink("Reservation", "ReservationForm", "Reservations")</li>*@
                 </ul>
             </li>
             <li class="treeview">
@@ -33,61 +33,74 @@
                     <li>@Html.ActionLink("Normal SMS", "SmsSendForm", "SmsSends")</li>
                 </ul>
             </li>
-            <li class="treeview">
-                <a href="#">
-                    <i class="fa fa-shopping-cart" aria-hidden="true"></i> <span>Production</span>
-                    <span class="pull-right-container">
-                        <i class="fa fa-angle-left pull-right"></i>
-                    </span>
-                </a>
-                <ul class="treeview-menu">
-                    <li>@Html.ActionLink("Milk Production", "ProductionForm", "Productions")</li>
-                    <li>@Html.ActionLink("Production Edit", "ProductionEdit", "Productions")</li>
-
-                </ul>
-            </li>
-            <li class="treeview">
-                <a href="#">
-                    <i class="fa fa-shopping-basket" aria-hidden="true"></i> <span>Purchase</span>
-                    <span class="pull-right-container">
-                        <i class="fa fa-angle-left pull-right"></i>
-                    </span>
-                </a>
-                <ul class="treeview-menu">
-                    <li>@Html.ActionLink("Milk Purchase", "MilkPurchaseForm", "MilkPurchases")</li>
-                    <li>@Html.ActionLink("Purchase List", "MilkPurchaseList", "MilkPurchases")</li>
-
-                </ul>
-            </li>
 
 
-            <li class="treeview">
-                <a href="#">
-                    <i class="fa fa-shopping-basket" aria-hidden="true"></i> <span>Sales Module</span>
-                    <span class="pull-right-container">
-                        <i class="fa fa-angle-left pull-right"></i>
-                    </span>
-                </a>
-                <ul class="treeview-menu">
-                    <li>@Html.ActionLink("Sales Form", "SalesForm", "Sales")</li>
-                    <li>@Html.ActionLink("Sales Edit", "SalesModifyForm", "Sales")</li>
 
-                </ul>
-            </li>
-            
-            <li class="treeview">
-                <a href="#">
-                    <i class="fa fa-shopping-basket" aria-hidden="true"></i> <span>Mustard Oil</span>
-                    <span class="pull-right-container">
-                        <i class="fa fa-angle-left pull-right"></i>
-                    </span>
-                </a>
-                <ul class="treeview-menu">
-                    <li>@Html.ActionLink("Oil Sell", "SellForm", "OilSell")</li>
-                    <li>@Html.ActionLink("Sell Edit", "SellEditForm", "OilSell")</li>
-                </ul>
-            </li>
+            <!--
 
+    Commnet open
+
+        -->
+        <li class="treeview">
+            <a href="#">
+                <i class="fa fa-shopping-cart" aria-hidden="true"></i> <span>Production</span>
+                <span class="pull-right-container">
+                    <i class="fa fa-angle-left pull-right"></i>
+                </span>
+            </a>
+            <ul class="treeview-menu">
+                <li>@Html.ActionLink("Milk Production", "ProductionForm", "Productions")</li>
+                <li>@Html.ActionLink("Production Edit", "ProductionEdit", "Productions")</li>
+
+            </ul>
+        </li>
+        <li class="treeview">
+            <a href="#">
+                <i class="fa fa-shopping-basket" aria-hidden="true"></i> <span>Purchase</span>
+                <span class="pull-right-container">
+                    <i class="fa fa-angle-left pull-right"></i>
+                </span>
+            </a>
+            <ul class="treeview-menu">
+                <li>@Html.ActionLink("Milk Purchase", "MilkPurchaseForm", "MilkPurchases")</li>
+                <li>@Html.ActionLink("Purchase List", "MilkPurchaseList", "MilkPurchases")</li>
+
+            </ul>
+        </li>
+        <li class="treeview">
+            <a href="#">
+                <i class="fa fa-shopping-basket" aria-hidden="true"></i> <span>Sales Module</span>
+                <span class="pull-right-container">
+                    <i class="fa fa-angle-left pull-right"></i>
+                </span>
+            </a>
+            <ul class="treeview-menu">
+                @*<li>@Html.ActionLink("Sales Form", "SalesForm", "Sales")</li>*@
+                <li>@Html.ActionLink("Sales Edit", "SalesModifyForm", "Sales")</li>
+
+            </ul>
+        </li>
+
+        @*<li class="treeview">
+            <a href="#">
+                <i class="fa fa-shopping-basket" aria-hidden="true"></i> <span>Mustard Oil</span>
+                <span class="pull-right-container">
+                    <i class="fa fa-angle-left pull-right"></i>
+                </span>
+            </a>
+            <ul class="treeview-menu">
+                <li>@Html.ActionLink("Oil Sell", "SellForm", "OilSell")</li>
+                <li>@Html.ActionLink("Sell Edit", "SellEditForm", "OilSell")</li>
+            </ul>
+        </li>*@
+
+
+
+            <!--
+
+    Commnet close
+
+        -->
             <li class="treeview">
                 <a href="#">
                     <i class="fa fa-shopping-basket" aria-hidden="true"></i> <span>Report Module</span>
@@ -95,11 +108,12 @@
                         <i class="fa fa-angle-left pull-right"></i>
                     </span>
                 </a>
-              
+
                 <ul class="treeview-menu">
                     <li>@Html.ActionLink("Bill Generate", "BillReportForm", "Reports")</li>
-                    <li>@Html.ActionLink("Client List", "ClientList", "ClientReports")</li>
+                    <li>@Html.ActionLink("Sales Edit", "SalesModifyForm", "Sales")</li>
                     <li>@Html.ActionLink("Bill Payment", "Index", "Payments")</li>
+                    <li>@Html.ActionLink("Client List", "ClientList", "ClientReports")</li>
                     <li>@Html.ActionLink("Production Report", "ProductionReport", "Productions")</li>
                     <li>@Html.ActionLink("Purchase Report", "PurchaseReport", "MilkPurchases")</li>
                     <li>@Html.ActionLink("Sell Report", "SalesReport", "Reports")</li>
@@ -117,20 +131,20 @@
                     <li>@Html.ActionLink("Cow Entry", "CowEntryForm", "CowSetups")</li>
                 </ul>
             </li>
-            
-            <li class="treeview">
-                <a href="#">
-                    <i class="fa fa-amazon" aria-hidden="true"></i> <span>Cow Sale Module</span>
-                    <span class="pull-right-container">
-                        <i class="fa fa-angle-left pull-right"></i>
-                    </span>
-                </a>
-                <ul class="treeview-menu">
-                    <li>@Html.ActionLink("Customer Info", "Customer", "Cutomers")</li>
-                    <li>@Html.ActionLink("Cow Information", "ProductForm", "Products")</li>
-                    <li>@Html.ActionLink("Cow Sale", "Sale", "CowSales")</li>
-                </ul>
-            </li>
+
+            @*<li class="treeview">
+            <a href="#">
+                <i class="fa fa-amazon" aria-hidden="true"></i> <span>Cow Sale Module</span>
+                <span class="pull-right-container">
+                    <i class="fa fa-angle-left pull-right"></i>
+                </span>
+            </a>
+            <ul class="treeview-menu">
+                <li>@Html.ActionLink("Customer Info", "Customer", "Cutomers")</li>
+                <li>@Html.ActionLink("Cow Information", "ProductForm", "Products")</li>
+                <li>@Html.ActionLink("Cow Sale", "Sale", "CowSales")</li>
+            </ul>
+        </li>*@
 
         </ul>
         @* END Menu *@

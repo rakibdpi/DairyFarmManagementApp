@@ -37,6 +37,30 @@ namespace BusinessManagementSystemApp.Service.Menagers.MilkManagement
             return _unitOfWork.Complete();
         }
 
+
+        public string GenerateClientCode(int areaId)
+        {
+            var areaSortName = _unitOfWork.Area.Find(c => c.Id == areaId).FirstOrDefault();
+            int invNo = 0;
+            var lastCode = _unitOfWork.ClientInfo.GetAll().Where(c=>c.AreaId == areaId).OrderByDescending(c => c.Id).FirstOrDefault();
+            if (lastCode != null)
+            {
+                if (!string.IsNullOrEmpty(lastCode.Code))
+                {
+                    var split = lastCode.Code.Split('-');
+                    invNo = Convert.ToInt32(split[1]);
+                }
+            }
+            else
+            {
+                var codeNo = areaSortName.CodeNo + "-0001";
+                return codeNo;
+            }
+            ++invNo;
+            var invoiceNo = areaSortName.CodeNo + "-" + invNo.ToString().PadLeft(4, '0');
+            return invoiceNo;
+        }
+
         public string GenerateCode()
         {
             int invNo = 0;

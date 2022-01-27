@@ -126,6 +126,7 @@
     <Compile Include="Models\MilkSells\RowSale.cs" />
     <Compile Include="Models\MilkPurchases\MilkPurchase.cs" />
     <Compile Include="Models\MilkPurchases\MilkSuppliers.cs" />
+    <Compile Include="Models\Muri\MuriSale.cs" />
     <Compile Include="Models\OilSell\OilSells.cs" />
     <Compile Include="Models\Payments\Payment.cs" />
     <Compile Include="Models\PurchaseModules\Purchase.cs" />
@@ -146,6 +147,7 @@
     <Compile Include="ReportModels\CowSellBillSms.cs" />
     <Compile Include="ReportModels\MilkDetailsSummary.cs" />
     <Compile Include="ReportModels\OilReport\OilBillReport.cs" />
+    <Compile Include="ReportModels\RunningPaymentInfo.cs" />
     <Compile Include="ReportModels\SalesDetailsReport.cs" />
     <Compile Include="ReportModels\ViewModels\BillReportViewModel.cs" />
     <Compile Include="ReportModels\ViewModels\BillSummaryVm.cs" />
@@ -165,6 +167,7 @@
     <Compile Include="Repositories\MilkManagement\IMonthlyReservationRepository.cs" />
     <Compile Include="Repositories\MilkSellsInterfaces\IPacketSaleRepository.cs" />
     <Compile Include="Repositories\MilkSellsInterfaces\IRowSaleRepository.cs" />
+    <Compile Include="Repositories\MuriSell\IMuriSellRepository.cs" />
     <Compile Include="Repositories\OilSell\IOilSellRepository.cs" />
     <Compile Include="Repositories\PaymentInterfaces\IPaymentRepository.cs" />
     <Compile Include="Repositories\ProductionInterfaces\IPacketTypeRepository.cs" />
@@ -200,11 +203,13 @@
     <Compile Include="ViewModels\MilkPurchase\MilkPurchaseViewModel.cs" />
     <Compile Include="ViewModels\MilkPurchase\MilkSupplierViewModel.cs" />
     <Compile Include="ViewModels\MilkSalesViewModel\MilkSaleViewModel.cs" />
+    <Compile Include="ViewModels\MuriSell\MuriSellVm.cs" />
     <Compile Include="ViewModels\OilSell\OilSellViewModel.cs" />
     <Compile Include="ViewModels\PaymentViewModel.cs" />
     <Compile Include="ViewModels\ProductViewModel.cs" />
     <Compile Include="ViewModels\PurchaseViewModel.cs" />
     <Compile Include="ViewModels\PurchaseViewModelForDataPass.cs" />
+    <Compile Include="ViewModels\ReportViewModels\PaymentReportViewModel.cs" />
     <Compile Include="ViewModels\ReportViewModels\ProductionReportViewModel.cs" />
     <Compile Include="ViewModels\ReportViewModels\PurchaseReportViewModel.cs" />
     <Compile Include="ViewModels\SalesDetailsViewModel.cs" />

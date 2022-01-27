@@ -30,6 +30,8 @@ using BusinessManagementSystemApp.Core.Models.SupplierModules;
 using BusinessManagementSystemApp.Core.ViewModels;
 using BusinessManagementSystemApp.Core.ViewModels.GheeSale;
 using BusinessManagementSystemApp.Core.ViewModels.MilkPurchase;
+using BusinessManagementSystemApp.Core.Models.Muri;
+using BusinessManagementSystemApp.Core.ViewModels.MuriSell;
 
 namespace BusinessManagementSystemApp.Core.AutoMapperConfigurations
 {
@@ -164,6 +166,9 @@ namespace BusinessManagementSystemApp.Core.AutoMapperConfigurations
 
             CreateMap<GheeSale, GheeSaleViewModel>();
             CreateMap<GheeSaleViewModel, GheeSale>();
+
+            CreateMap<MuriSale, MuriSellVm>();
+            CreateMap<MuriSellVm, MuriSale>();
         }
     }
 }

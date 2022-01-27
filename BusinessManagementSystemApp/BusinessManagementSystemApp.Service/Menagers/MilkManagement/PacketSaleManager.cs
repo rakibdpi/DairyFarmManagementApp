@@ -53,16 +53,16 @@ namespace BusinessManagementSystemApp.Service.Menagers.MilkManagement
                 .Find(c => c.ClientInfoId == clientId && c.SalesMonth == month && !c.IsDelete).Any();
             return status;
         }
-        public IEnumerable<SalesReport> GetMilkReport(int year, string month)
+        public IEnumerable<SalesReport> GetMilkReport(string year, string month)
         {
             var sales = new List<SalesReport>();
 
             var list = _unitOfWork.Area.GetAll().Where(c => c.IsActive && !c.IsDelete).Select(x => new
             {
                 AreaName= x.Name,
-                TotalHalf= _unitOfWork.PacketSale.Find(c => c.SalesMonth== month && c.CreateDate.Year==year && c.AreaId==x.Id).Sum(c => c.HalfKg),
-                TotalSevenHalf = _unitOfWork.PacketSale.Find(c => c.SalesMonth == month && c.CreateDate.Year == year && c.AreaId == x.Id).Sum(c => c.SevenAndHalfGm),
-                TotalOne = _unitOfWork.PacketSale.Find(c => c.SalesMonth == month && c.CreateDate.Year == year && c.AreaId == x.Id).Sum(c => c.OneKg)
+                TotalHalf= _unitOfWork.PacketSale.Find(c => c.SalesMonth== month && c.Year==year && c.AreaId==x.Id).Sum(c => c.HalfKg),
+                TotalSevenHalf = _unitOfWork.PacketSale.Find(c => c.SalesMonth == month && c.Year == year && c.AreaId == x.Id).Sum(c => c.SevenAndHalfGm),
+                TotalOne = _unitOfWork.PacketSale.Find(c => c.SalesMonth == month && c.Year == year && c.AreaId == x.Id).Sum(c => c.OneKg)
 
             }).Distinct().ToList();
 
@@ -74,7 +74,7 @@ namespace BusinessManagementSystemApp.Service.Menagers.MilkManagement
                     TotalHalf = l.TotalHalf,
                     TotalSevenHalf = l.TotalSevenHalf,
                     TotalOne = l.TotalOne,
-                    TotalAmount = (l.TotalHalf * 46) + (l.TotalSevenHalf * 68) + (l.TotalOne * 90)
+                    TotalAmount = (l.TotalHalf * 43) + (l.TotalSevenHalf * 65) + (l.TotalOne * 85)
                 };
                 sales.Add(s);
             }
@@ -113,6 +113,7 @@ namespace BusinessManagementSystemApp.Service.Menagers.MilkManagement
                 {
                     Id = info.Id,
                     AreaId = info.AreaId,
+                    Year = info.Year,
                     ClientInfoId = info.ClientInfoId,
                     SalesMonth = info.SalesMonth,
                     DayNumber = info.DayNumber,
@@ -144,6 +145,7 @@ namespace BusinessManagementSystemApp.Service.Menagers.MilkManagement
                         details.AreaId = info.AreaId;
                         details.ClientInfoId = info.ClientInfoId;
                         details.SalesMonth = info.SalesMonth;
+                        details.Year = info.Year;
                         details.DayNumber = info.DayNumber;
                         details.HalfKg = info.HalfKg;
                         details.SevenAndHalfGm = info.SevenAndHalfGm;

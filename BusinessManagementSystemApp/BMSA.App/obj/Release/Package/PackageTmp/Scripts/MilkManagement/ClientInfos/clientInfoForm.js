@@ -22,9 +22,9 @@
         var area = $("#AreaId").val();
 
 
-        $.get("/api/Areas/GetByArea", { areaId: area },
+        $.get("/api/ClientInfos/GenerateClientCode", { areaId: area },
             function (data) {
-                $("#Code").val(data.codeNo);
+                $("#Code").val(data);
             });
 
             
